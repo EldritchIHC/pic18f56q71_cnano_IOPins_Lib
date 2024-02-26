@@ -1,0 +1,357 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F56Q71 ]
+[d frameptr 1249 ]
+"4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"64 H:\Projects\Embedded\MPLAB\Projects\pic18f56q71_iopins_lib.X\IOPINS.c
+[v _IOPINS_vMaskGenerator IOPINS_vMaskGenerator `(v  1 e 1 0 ]
+"75
+[v _IOPINS_vPortConfig IOPINS_vPortConfig `(v  1 e 1 0 ]
+"213
+[v _IOPINS_vPortInterruptConfig IOPINS_vPortInterruptConfig `(v  1 e 1 0 ]
+"278
+[v _IOPINS_vPortASet IOPINS_vPortASet `(v  1 e 1 0 ]
+"283
+[v _IOPINS_vPortAClear IOPINS_vPortAClear `(v  1 e 1 0 ]
+"318
+[v _IOPINS_vPortBSet IOPINS_vPortBSet `(v  1 e 1 0 ]
+"323
+[v _IOPINS_vPortBClear IOPINS_vPortBClear `(v  1 e 1 0 ]
+"358
+[v _IOPINS_vPortCSet IOPINS_vPortCSet `(v  1 e 1 0 ]
+"363
+[v _IOPINS_vPortCClear IOPINS_vPortCClear `(v  1 e 1 0 ]
+"398
+[v _IOPINS_vPortDSet IOPINS_vPortDSet `(v  1 e 1 0 ]
+"403
+[v _IOPINS_vPortDClear IOPINS_vPortDClear `(v  1 e 1 0 ]
+"83 H:\Projects\Embedded\MPLAB\Projects\pic18f56q71_iopins_lib.X\main.c
+[v _main main `(v  1 e 1 0 ]
+"176
+[v _IOC0_ISR IOC0_ISR `IIH(v  1 e 1 0 ]
+"10703 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-Q_DFP/1.24.430/xc8\pic\include\proc\pic18f56q71.h
+[v _LATA LATA `VEuc  1 e 1 @320 ]
+"10765
+[v _LATB LATB `VEuc  1 e 1 @321 ]
+"10827
+[v _LATC LATC `VEuc  1 e 1 @322 ]
+"10889
+[v _LATD LATD `VEuc  1 e 1 @323 ]
+"10951
+[v _LATE LATE `VEuc  1 e 1 @324 ]
+"10983
+[v _LATF LATF `VEuc  1 e 1 @325 ]
+"11045
+[v _TRISA TRISA `VEuc  1 e 1 @328 ]
+"11107
+[v _TRISB TRISB `VEuc  1 e 1 @329 ]
+"11169
+[v _TRISC TRISC `VEuc  1 e 1 @330 ]
+"11231
+[v _TRISD TRISD `VEuc  1 e 1 @331 ]
+"11293
+[v _TRISE TRISE `VEuc  1 e 1 @332 ]
+"11325
+[v _TRISF TRISF `VEuc  1 e 1 @333 ]
+"11387
+[v _PORTA PORTA `VEuc  1 e 1 @336 ]
+"11449
+[v _PORTB PORTB `VEuc  1 e 1 @337 ]
+"11511
+[v _PORTC PORTC `VEuc  1 e 1 @338 ]
+"11573
+[v _PORTD PORTD `VEuc  1 e 1 @339 ]
+"11635
+[v _PORTE PORTE `VEuc  1 e 1 @340 ]
+"11673
+[v _PORTF PORTF `VEuc  1 e 1 @341 ]
+"39375
+[v _ANSELA ANSELA `VEuc  1 e 1 @1024 ]
+"39437
+[v _WPUA WPUA `VEuc  1 e 1 @1025 ]
+"39623
+[v _INLVLA INLVLA `VEuc  1 e 1 @1028 ]
+"39685
+[v _IOCAP IOCAP `VEuc  1 e 1 @1029 ]
+"39747
+[v _IOCAN IOCAN `VEuc  1 e 1 @1030 ]
+"39809
+[v _IOCAF IOCAF `VEuc  1 e 1 @1031 ]
+[s S135 . 1 `uc 1 IOCAF0 1 0 :1:0 
+`uc 1 IOCAF1 1 0 :1:1 
+`uc 1 IOCAF2 1 0 :1:2 
+`uc 1 IOCAF3 1 0 :1:3 
+`uc 1 IOCAF4 1 0 :1:4 
+`uc 1 IOCAF5 1 0 :1:5 
+`uc 1 IOCAF6 1 0 :1:6 
+`uc 1 IOCAF7 1 0 :1:7 
+]
+"39826
+[u S144 . 1 `S135 1 . 1 0 ]
+"39826
+"39826
+[v _IOCAFbits IOCAFbits `VES144  1 e 1 @1031 ]
+"39871
+[v _ANSELB ANSELB `VEuc  1 e 1 @1032 ]
+"39933
+[v _WPUB WPUB `VEuc  1 e 1 @1033 ]
+"40119
+[v _INLVLB INLVLB `VEuc  1 e 1 @1036 ]
+"40181
+[v _IOCBP IOCBP `VEuc  1 e 1 @1037 ]
+"40243
+[v _IOCBN IOCBN `VEuc  1 e 1 @1038 ]
+"40305
+[v _IOCBF IOCBF `VEuc  1 e 1 @1039 ]
+"40367
+[v _ANSELC ANSELC `VEuc  1 e 1 @1040 ]
+"40429
+[v _WPUC WPUC `VEuc  1 e 1 @1041 ]
+"40615
+[v _INLVLC INLVLC `VEuc  1 e 1 @1044 ]
+"40677
+[v _IOCCP IOCCP `VEuc  1 e 1 @1045 ]
+"40739
+[v _IOCCN IOCCN `VEuc  1 e 1 @1046 ]
+"40801
+[v _IOCCF IOCCF `VEuc  1 e 1 @1047 ]
+"40925
+[v _WPUD WPUD `VEuc  1 e 1 @1049 ]
+"41111
+[v _INLVLD INLVLD `VEuc  1 e 1 @1052 ]
+"41205
+[v _WPUE WPUE `VEuc  1 e 1 @1057 ]
+"41307
+[v _INLVLE INLVLE `VEuc  1 e 1 @1060 ]
+"41470
+[v _WPUF WPUF `VEuc  1 e 1 @1065 ]
+"41656
+[v _INLVLF INLVLF `VEuc  1 e 1 @1068 ]
+[s S233 . 1 `uc 1 SWIE 1 0 :1:0 
+`uc 1 HLVDIE 1 0 :1:1 
+`uc 1 OSFIE 1 0 :1:2 
+`uc 1 CSWIE 1 0 :1:3 
+`uc 1 NVMIE 1 0 :1:4 
+`uc 1 CLC1IE 1 0 :1:5 
+`uc 1 CRCIE 1 0 :1:6 
+`uc 1 IOCIE 1 0 :1:7 
+]
+"45498
+[u S242 . 1 `S233 1 . 1 0 ]
+"45498
+"45498
+[v _PIE0bits PIE0bits `VES242  1 e 1 @1191 ]
+[s S114 . 1 `uc 1 SWIF 1 0 :1:0 
+`uc 1 HLVDIF 1 0 :1:1 
+`uc 1 OSFIF 1 0 :1:2 
+`uc 1 CSWIF 1 0 :1:3 
+`uc 1 NVMIF 1 0 :1:4 
+`uc 1 CLC1IF 1 0 :1:5 
+`uc 1 CRCIF 1 0 :1:6 
+`uc 1 IOCIF 1 0 :1:7 
+]
+"46132
+[u S123 . 1 `S114 1 . 1 0 ]
+"46132
+"46132
+[v _PIR0bits PIR0bits `VES123  1 e 1 @1202 ]
+[s S24 . 1 `uc 1 INT0EDG 1 0 :1:0 
+`uc 1 INT1EDG 1 0 :1:1 
+`uc 1 INT2EDG 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 IPEN 1 0 :1:5 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"46769
+[s S32 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 GIEH 1 0 :1:7 
+]
+"46769
+[u S35 . 1 `S24 1 . 1 0 `S32 1 . 1 0 ]
+"46769
+"46769
+[v _INTCON0bits INTCON0bits `VES35  1 e 1 @1238 ]
+"80 H:\Projects\Embedded\MPLAB\Projects\pic18f56q71_iopins_lib.X\main.c
+[v _bState bState `a  1 e 1 0 ]
+"81
+[v _bLEDPattern bLEDPattern `a  1 e 1 0 ]
+"83
+[v _main main `(v  1 e 1 0 ]
+{
+"97
+[v main@u8PinListPortD1 u8PinListPortD1 `[4]uc  1 a 4 9 ]
+"116
+[v main@i i `us  1 a 2 26 ]
+"96
+[v main@u8PinListPortB1 u8PinListPortB1 `[2]uc  1 a 2 18 ]
+"95
+[v main@u8PinListPortA1 u8PinListPortA1 `[2]uc  1 a 2 16 ]
+"93
+[v main@u8PinList2 u8PinList2 `[2]uc  1 a 2 14 ]
+"90
+[v main@u8MaskPortD1 u8MaskPortD1 `uc  1 a 1 25 ]
+"89
+[v main@u8MaskPortB1 u8MaskPortB1 `uc  1 a 1 24 ]
+"88
+[v main@u8MaskPortA1 u8MaskPortA1 `uc  1 a 1 23 ]
+"85
+[v main@u8Mask1 u8Mask1 `uc  1 a 1 22 ]
+"86
+[v main@u8Mask2 u8Mask2 `uc  1 a 1 21 ]
+"92
+[v main@u8PinList1 u8PinList1 `[1]uc  1 a 1 20 ]
+"98
+[v main@u8PinListPortA2 u8PinListPortA2 `[1]uc  1 a 1 13 ]
+"90
+[v main@F16310 F16310 `[1]uc  1 s 1 F16310 ]
+"92
+[v main@F16312 F16312 `[2]uc  1 s 2 F16312 ]
+"93
+[v main@F16314 F16314 `[2]uc  1 s 2 F16314 ]
+"95
+[v main@F16316 F16316 `[2]uc  1 s 2 F16316 ]
+"96
+[v main@F16318 F16318 `[4]uc  1 s 4 F16318 ]
+"97
+[v main@F16320 F16320 `[1]uc  1 s 1 F16320 ]
+"174
+} 0
+"213 H:\Projects\Embedded\MPLAB\Projects\pic18f56q71_iopins_lib.X\IOPINS.c
+[v _IOPINS_vPortInterruptConfig IOPINS_vPortInterruptConfig `(v  1 e 1 0 ]
+{
+[v IOPINS_vPortInterruptConfig@u8Port u8Port `uc  1 a 1 wreg ]
+[v IOPINS_vPortInterruptConfig@u8Port u8Port `uc  1 a 1 wreg ]
+[v IOPINS_vPortInterruptConfig@u8PinMask u8PinMask `uc  1 p 1 0 ]
+[v IOPINS_vPortInterruptConfig@bEdge bEdge `a  1 p 1 1 ]
+[v IOPINS_vPortInterruptConfig@bInterruptMethod bInterruptMethod `a  1 p 1 2 ]
+"215
+[v IOPINS_vPortInterruptConfig@u8Port u8Port `uc  1 a 1 3 ]
+"276
+} 0
+"398
+[v _IOPINS_vPortDSet IOPINS_vPortDSet `(v  1 e 1 0 ]
+{
+[v IOPINS_vPortDSet@u8PinMask u8PinMask `uc  1 a 1 wreg ]
+[v IOPINS_vPortDSet@u8PinMask u8PinMask `uc  1 a 1 wreg ]
+"400
+[v IOPINS_vPortDSet@u8PinMask u8PinMask `uc  1 a 1 0 ]
+"401
+} 0
+"403
+[v _IOPINS_vPortDClear IOPINS_vPortDClear `(v  1 e 1 0 ]
+{
+[v IOPINS_vPortDClear@u8PinMask u8PinMask `uc  1 a 1 wreg ]
+[v IOPINS_vPortDClear@u8PinMask u8PinMask `uc  1 a 1 wreg ]
+"405
+[v IOPINS_vPortDClear@u8PinMask u8PinMask `uc  1 a 1 0 ]
+"406
+} 0
+"75
+[v _IOPINS_vPortConfig IOPINS_vPortConfig `(v  1 e 1 0 ]
+{
+[v IOPINS_vPortConfig@u8Port u8Port `uc  1 a 1 wreg ]
+[v IOPINS_vPortConfig@u8Port u8Port `uc  1 a 1 wreg ]
+[v IOPINS_vPortConfig@u8PinMask u8PinMask `uc  1 p 1 0 ]
+[v IOPINS_vPortConfig@u8Direction u8Direction `uc  1 p 1 1 ]
+[v IOPINS_vPortConfig@bWeakPU bWeakPU `uc  1 p 1 2 ]
+[v IOPINS_vPortConfig@bInputLevelSel bInputLevelSel `a  1 p 1 3 ]
+[v IOPINS_vPortConfig@u8Port u8Port `uc  1 a 1 4 ]
+"211
+} 0
+"358
+[v _IOPINS_vPortCSet IOPINS_vPortCSet `(v  1 e 1 0 ]
+{
+[v IOPINS_vPortCSet@u8PinMask u8PinMask `uc  1 a 1 wreg ]
+[v IOPINS_vPortCSet@u8PinMask u8PinMask `uc  1 a 1 wreg ]
+"360
+[v IOPINS_vPortCSet@u8PinMask u8PinMask `uc  1 a 1 0 ]
+"361
+} 0
+"363
+[v _IOPINS_vPortCClear IOPINS_vPortCClear `(v  1 e 1 0 ]
+{
+[v IOPINS_vPortCClear@u8PinMask u8PinMask `uc  1 a 1 wreg ]
+[v IOPINS_vPortCClear@u8PinMask u8PinMask `uc  1 a 1 wreg ]
+"365
+[v IOPINS_vPortCClear@u8PinMask u8PinMask `uc  1 a 1 0 ]
+"366
+} 0
+"318
+[v _IOPINS_vPortBSet IOPINS_vPortBSet `(v  1 e 1 0 ]
+{
+[v IOPINS_vPortBSet@u8PinMask u8PinMask `uc  1 a 1 wreg ]
+[v IOPINS_vPortBSet@u8PinMask u8PinMask `uc  1 a 1 wreg ]
+"320
+[v IOPINS_vPortBSet@u8PinMask u8PinMask `uc  1 a 1 0 ]
+"321
+} 0
+"323
+[v _IOPINS_vPortBClear IOPINS_vPortBClear `(v  1 e 1 0 ]
+{
+[v IOPINS_vPortBClear@u8PinMask u8PinMask `uc  1 a 1 wreg ]
+[v IOPINS_vPortBClear@u8PinMask u8PinMask `uc  1 a 1 wreg ]
+"325
+[v IOPINS_vPortBClear@u8PinMask u8PinMask `uc  1 a 1 0 ]
+"326
+} 0
+"278
+[v _IOPINS_vPortASet IOPINS_vPortASet `(v  1 e 1 0 ]
+{
+[v IOPINS_vPortASet@u8PinMask u8PinMask `uc  1 a 1 wreg ]
+[v IOPINS_vPortASet@u8PinMask u8PinMask `uc  1 a 1 wreg ]
+"280
+[v IOPINS_vPortASet@u8PinMask u8PinMask `uc  1 a 1 0 ]
+"281
+} 0
+"283
+[v _IOPINS_vPortAClear IOPINS_vPortAClear `(v  1 e 1 0 ]
+{
+[v IOPINS_vPortAClear@u8PinMask u8PinMask `uc  1 a 1 wreg ]
+[v IOPINS_vPortAClear@u8PinMask u8PinMask `uc  1 a 1 wreg ]
+"285
+[v IOPINS_vPortAClear@u8PinMask u8PinMask `uc  1 a 1 0 ]
+"286
+} 0
+"64
+[v _IOPINS_vMaskGenerator IOPINS_vMaskGenerator `(v  1 e 1 0 ]
+{
+"66
+[v IOPINS_vMaskGenerator@idx idx `VEuc  1 a 1 8 ]
+"67
+[v IOPINS_vMaskGenerator@u8TempMask u8TempMask `VEuc  1 a 1 7 ]
+"64
+[v IOPINS_vMaskGenerator@u8PinList u8PinList `*.39uc  1 p 2 0 ]
+[v IOPINS_vMaskGenerator@u8Pins u8Pins `uc  1 p 1 2 ]
+[v IOPINS_vMaskGenerator@u8PinMask u8PinMask `*.39uc  1 p 2 3 ]
+"73
+} 0
+"176 H:\Projects\Embedded\MPLAB\Projects\pic18f56q71_iopins_lib.X\main.c
+[v _IOC0_ISR IOC0_ISR `IIH(v  1 e 1 0 ]
+{
+"198
+} 0

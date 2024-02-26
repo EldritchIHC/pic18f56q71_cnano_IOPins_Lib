@@ -1,0 +1,2558 @@
+
+
+Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
+                                                                                               Sun Feb 25 19:17:54 2024
+
+Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
+     1                           	processor	18F56Q71
+     2                           	fnconf	rparam,??,?,0
+     3                           	pagewidth 120
+     4                           	opt	flic
+     5                           	psect	idataCOMRAM,global,class=CODE,delta=1,noexec
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+     8                           	psect	dataCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+     9                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+    10                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    19                           	psect	text9,global,reloc=2,class=CODE,delta=1
+    20                           	psect	text10,global,reloc=2,class=CODE,delta=1
+    21                           	psect	text11,global,reloc=2,class=CODE,delta=1
+    22                           	psect	text12,global,reloc=2,class=CODE,delta=1
+    23                           	psect	smallconst,global,reloc=2,class=SMALLCONST,delta=1,noexec
+    24                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    25                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    26                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=1,noexec
+    27   000000                     
+    28                           ; Generated 18/12/2023 GMT
+    29                           ; 
+    30                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    31                           ; All rights reserved.
+    32                           ; 
+    33                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    34                           ; 
+    35                           ; Redistribution and use in source and binary forms, with or without modification, are
+    36                           ; permitted provided that the following conditions are met:
+    37                           ; 
+    38                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    39                           ;        conditions and the following disclaimer.
+    40                           ; 
+    41                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    42                           ;        of conditions and the following disclaimer in the documentation and/or other
+    43                           ;        materials provided with the distribution. Publication is not required when
+    44                           ;        this file is used in an embedded application.
+    45                           ; 
+    46                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    47                           ;        software without specific prior written permission.
+    48                           ; 
+    49                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    50                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    51                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    52                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    53                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    54                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    55                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    56                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    57                           ; 
+    58                           ; 
+    59                           ; Code-generator required, PIC18F56Q71 Definitions
+    60                           ; 
+    61                           ; SFR Addresses
+    62   000000                     
+    63                           	psect	idataCOMRAM
+    64   001B04                     __pidataCOMRAM:
+    65                           	callstack 0
+    66                           
+    67                           ;initializer for main@F16295
+    68   001B04  00                 	db	0
+    69   001B05  01                 	db	1
+    70   001B06  04                 	db	4
+    71   001B07  05                 	db	5
+    72                           
+    73                           ;initializer for main@F16293
+    74   001B08  04                 	db	4
+    75   001B09  05                 	db	5
+    76                           
+    77                           ;initializer for main@F16291
+    78   001B0A  06                 	db	6
+    79   001B0B  07                 	db	7
+    80                           
+    81                           ;initializer for main@F16287
+    82   001B0C  07                 	db	7
+    83   000000                     _IOCAN	set	1030
+    84   000000                     _IOCAP	set	1029
+    85   000000                     _IOCAF	set	1031
+    86   000000                     _WPUB	set	1033
+    87   000000                     _LATA	set	320
+    88   000000                     _TRISA	set	328
+    89   000000                     _PORTA	set	336
+    90   000000                     _TRISF	set	333
+    91   000000                     _TRISE	set	332
+    92   000000                     _TRISD	set	331
+    93   000000                     _TRISC	set	330
+    94   000000                     _TRISB	set	329
+    95   000000                     _WPUA	set	1025
+    96   000000                     _INLVLA	set	1028
+    97   000000                     _INLVLB	set	1036
+    98   000000                     _WPUC	set	1041
+    99   000000                     _INLVLC	set	1044
+   100   000000                     _WPUD	set	1049
+   101   000000                     _INLVLD	set	1052
+   102   000000                     _WPUE	set	1057
+   103   000000                     _INLVLE	set	1060
+   104   000000                     _WPUF	set	1065
+   105   000000                     _INLVLF	set	1068
+   106   000000                     _LATF	set	325
+   107   000000                     _LATE	set	324
+   108   000000                     _LATD	set	323
+   109   000000                     _LATC	set	322
+   110   000000                     _LATB	set	321
+   111   000000                     _PORTF	set	341
+   112   000000                     _PORTE	set	340
+   113   000000                     _PORTD	set	339
+   114   000000                     _PORTC	set	338
+   115   000000                     _PORTB	set	337
+   116                           
+   117                           ; #config settings
+   118                           
+   119                           	psect	cinit
+   120   001A80                     __pcinit:
+   121                           	callstack 0
+   122   001A80                     start_initialization:
+   123                           	callstack 0
+   124   001A80                     __initialization:
+   125                           	callstack 0
+   126                           
+   127                           ; Initialize objects allocated to COMRAM (9 bytes)
+   128                           ; load TBLPTR registers with __pidataCOMRAM
+   129   001A80  0E04               	movlw	low __pidataCOMRAM
+   130   001A82  6EF6               	movwf	tblptrl,c
+   131   001A84  0E1B               	movlw	high __pidataCOMRAM
+   132   001A86  6EF7               	movwf	tblptrh,c
+   133   001A88  0E00               	movlw	low (__pidataCOMRAM shr (0+16))
+   134   001A8A  6EF8               	movwf	tblptru,c
+   135   001A8C  EE01  F11C         	lfsr	0,__pdataCOMRAM
+   136   001A90  EE10 F009          	lfsr	1,9
+   137   001A94                     copy_data0:
+   138   001A94  0009               	tblrd		*+
+   139   001A96  C4F5 F4EE          	movff	tablat,postinc0
+   140   001A9A  50E5               	movf	postdec1,w,c
+   141   001A9C  50E1               	movf	fsr1l,w,c
+   142   001A9E  E1FA               	bnz	copy_data0
+   143                           
+   144                           ; Clear objects allocated to COMRAM (1 bytes)
+   145   001AA0  6A25               	clrf	__pbssCOMRAM& (0+255),c
+   146   001AA2                     end_of_initialization:
+   147                           	callstack 0
+   148   001AA2                     __end_of__initialization:
+   149                           	callstack 0
+   150   001AA2  0E00               	movlw	low (__Lmediumconst shr (0+16))
+   151   001AA4  6EF8               	movwf	tblptru,c
+   152   001AA6  0100               	movlb	0
+   153   001AA8  EFD2  F00B         	goto	_main	;jump to C main() function
+   154                           
+   155                           	psect	bssCOMRAM
+   156   000525                     __pbssCOMRAM:
+   157                           	callstack 0
+   158   000525                     	ds	1
+   159                           
+   160                           	psect	dataCOMRAM
+   161   00051C                     __pdataCOMRAM:
+   162                           	callstack 0
+   163   00051C                     main@F16295:
+   164                           	callstack 0
+   165   00051C                     	ds	4
+   166   000520                     main@F16293:
+   167                           	callstack 0
+   168   000520                     	ds	2
+   169   000522                     main@F16291:
+   170                           	callstack 0
+   171   000522                     	ds	2
+   172   000524                     main@F16287:
+   173                           	callstack 0
+   174   000524                     	ds	1
+   175                           
+   176                           	psect	cstackCOMRAM
+   177   000501                     __pcstackCOMRAM:
+   178                           	callstack 0
+   179   000501                     IOPINS_vPortConfig@u8PinMask:
+   180                           	callstack 0
+   181   000501                     IOPINS_vPortInterruptConfig@u8PinMask:
+   182                           	callstack 0
+   183   000501                     IOPINS_vPortASet@u8PinMask:
+   184                           	callstack 0
+   185   000501                     IOPINS_vPortAClear@u8PinMask:
+   186                           	callstack 0
+   187   000501                     _IOPINS_bPinAInterruptRead$173:
+   188                           	callstack 0
+   189   000501                     IOPINS_vPortBSet@u8PinMask:
+   190                           	callstack 0
+   191   000501                     IOPINS_vPortBClear@u8PinMask:
+   192                           	callstack 0
+   193   000501                     IOPINS_vPortCSet@u8PinMask:
+   194                           	callstack 0
+   195   000501                     IOPINS_vPortCClear@u8PinMask:
+   196                           	callstack 0
+   197   000501                     IOPINS_vPortDSet@u8PinMask:
+   198                           	callstack 0
+   199   000501                     IOPINS_vPortDClear@u8PinMask:
+   200                           	callstack 0
+   201   000501                     IOPINS_vMaskGenerator@u8PinList:
+   202                           	callstack 0
+   203                           
+   204                           ; 2 bytes @ 0x0
+   205   000501                     	ds	1
+   206   000502                     IOPINS_vPortConfig@u8Direction:
+   207                           	callstack 0
+   208   000502                     IOPINS_vPortInterruptConfig@bEdge:
+   209                           	callstack 0
+   210   000502                     IOPINS_bPinAInterruptRead@u8PinMask:
+   211                           	callstack 0
+   212                           
+   213                           ; 1 bytes @ 0x1
+   214   000502                     	ds	1
+   215   000503                     IOPINS_vMaskGenerator@u8Pins:
+   216                           	callstack 0
+   217   000503                     IOPINS_vPortConfig@bWeakPU:
+   218                           	callstack 0
+   219   000503                     IOPINS_vPortInterruptConfig@u8Port:
+   220                           	callstack 0
+   221                           
+   222                           ; 1 bytes @ 0x2
+   223   000503                     	ds	1
+   224   000504                     IOPINS_vPortConfig@bInputLevelSel:
+   225                           	callstack 0
+   226   000504                     IOPINS_vMaskGenerator@u8PinMask:
+   227                           	callstack 0
+   228                           
+   229                           ; 2 bytes @ 0x3
+   230   000504                     	ds	1
+   231   000505                     IOPINS_vPortConfig@u8Port:
+   232                           	callstack 0
+   233                           
+   234                           ; 1 bytes @ 0x4
+   235   000505                     	ds	1
+   236   000506                     ??_IOPINS_vMaskGenerator:
+   237                           
+   238                           ; 1 bytes @ 0x5
+   239   000506                     	ds	2
+   240   000508                     IOPINS_vMaskGenerator@u8TempMask:
+   241                           	callstack 0
+   242                           
+   243                           ; 1 bytes @ 0x7
+   244   000508                     	ds	1
+   245   000509                     IOPINS_vMaskGenerator@idx:
+   246                           	callstack 0
+   247                           
+   248                           ; 1 bytes @ 0x8
+   249   000509                     	ds	1
+   250   00050A                     main@u8PinListPortD:
+   251                           	callstack 0
+   252                           
+   253                           ; 4 bytes @ 0x9
+   254   00050A                     	ds	4
+   255   00050E                     main@u8PinListPortA:
+   256                           	callstack 0
+   257                           
+   258                           ; 2 bytes @ 0xD
+   259   00050E                     	ds	2
+   260   000510                     main@u8PinListPortB:
+   261                           	callstack 0
+   262                           
+   263                           ; 2 bytes @ 0xF
+   264   000510                     	ds	2
+   265   000512                     main@bState:
+   266                           	callstack 0
+   267                           
+   268                           ; 1 bytes @ 0x11
+   269   000512                     	ds	1
+   270   000513                     main@u8PinList1:
+   271                           	callstack 0
+   272                           
+   273                           ; 1 bytes @ 0x12
+   274   000513                     	ds	1
+   275   000514                     main@u8PinList2:
+   276                           	callstack 0
+   277                           
+   278                           ; 1 bytes @ 0x13
+   279   000514                     	ds	1
+   280   000515                     main@u8Mask1:
+   281                           	callstack 0
+   282                           
+   283                           ; 1 bytes @ 0x14
+   284   000515                     	ds	1
+   285   000516                     main@u8Mask2:
+   286                           	callstack 0
+   287                           
+   288                           ; 1 bytes @ 0x15
+   289   000516                     	ds	1
+   290   000517                     main@u8MaskPortA:
+   291                           	callstack 0
+   292                           
+   293                           ; 1 bytes @ 0x16
+   294   000517                     	ds	1
+   295   000518                     main@u8MaskPortB:
+   296                           	callstack 0
+   297                           
+   298                           ; 1 bytes @ 0x17
+   299   000518                     	ds	1
+   300   000519                     main@u8MaskPortD:
+   301                           	callstack 0
+   302                           
+   303                           ; 1 bytes @ 0x18
+   304   000519                     	ds	1
+   305   00051A                     main@i:
+   306                           	callstack 0
+   307                           
+   308                           ; 2 bytes @ 0x19
+   309   00051A                     	ds	2
+   310                           
+   311 ;;
+   312 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   313 ;;
+   314 ;; *************** function _main *****************
+   315 ;; Defined at:
+   316 ;;		line 77 in file "main.c"
+   317 ;; Parameters:    Size  Location     Type
+   318 ;;		None
+   319 ;; Auto vars:     Size  Location     Type
+   320 ;;  u8PinListPor    4    9[COMRAM] unsigned char [4]
+   321 ;;  i               2   25[COMRAM] unsigned short 
+   322 ;;  u8PinListPor    2   15[COMRAM] unsigned char [2]
+   323 ;;  u8PinListPor    2   13[COMRAM] unsigned char [2]
+   324 ;;  u8MaskPortD     1   24[COMRAM] unsigned char 
+   325 ;;  u8MaskPortB     1   23[COMRAM] unsigned char 
+   326 ;;  u8MaskPortA     1   22[COMRAM] unsigned char 
+   327 ;;  u8Mask2         1   21[COMRAM] unsigned char 
+   328 ;;  u8Mask1         1   20[COMRAM] unsigned char 
+   329 ;;  u8PinList2      1   19[COMRAM] unsigned char [1]
+   330 ;;  u8PinList1      1   18[COMRAM] unsigned char [1]
+   331 ;;  bState          1   17[COMRAM] _Bool 
+   332 ;; Return value:  Size  Location     Type
+   333 ;;                  1    wreg      void 
+   334 ;; Registers used:
+   335 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+   336 ;; Tracked objects:
+   337 ;;		On entry : 0/0
+   338 ;;		On exit  : 0/0
+   339 ;;		Unchanged: 0/0
+   340 ;; Data sizes:     COMRAM   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15  BANK1
+      +6  BANK17  BANK18  BANK19  BANK20
+   341 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   342 ;;      Locals:        18       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   343 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   344 ;;      Totals:        18       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   345 ;;Total ram usage:       18 bytes
+   346 ;; Hardware stack levels required when called: 1
+   347 ;; This function calls:
+   348 ;;		_IOPINS_bPinAInterruptRead
+   349 ;;		_IOPINS_vMaskGenerator
+   350 ;;		_IOPINS_vPortAClear
+   351 ;;		_IOPINS_vPortASet
+   352 ;;		_IOPINS_vPortBClear
+   353 ;;		_IOPINS_vPortBSet
+   354 ;;		_IOPINS_vPortCClear
+   355 ;;		_IOPINS_vPortCSet
+   356 ;;		_IOPINS_vPortConfig
+   357 ;;		_IOPINS_vPortDClear
+   358 ;;		_IOPINS_vPortDSet
+   359 ;;		_IOPINS_vPortInterruptConfig
+   360 ;; This function is called by:
+   361 ;;		Startup code after reset
+   362 ;; This function uses a non-reentrant model
+   363 ;;
+   364                           
+   365                           	psect	text0
+   366   0017A4                     __ptext0:
+   367                           	callstack 0
+   368   0017A4                     _main:
+   369                           	callstack 126
+   370   0017A4                     
+   371                           ;main.c: 78:     _Bool bState = 0;
+   372   0017A4  0E00               	movlw	0
+   373   0017A6  6E12               	movwf	main@bState^(0+1280),c
+   374                           
+   375                           ;main.c: 79:     uint8_t u8Mask1 = 0;
+   376   0017A8  0E00               	movlw	0
+   377   0017AA  6E15               	movwf	main@u8Mask1^(0+1280),c
+   378                           
+   379                           ;main.c: 80:     uint8_t u8Mask2 = 0;
+   380   0017AC  0E00               	movlw	0
+   381   0017AE  6E16               	movwf	main@u8Mask2^(0+1280),c
+   382                           
+   383                           ;main.c: 81:     uint8_t u8MaskPortA = 0;
+   384   0017B0  0E00               	movlw	0
+   385   0017B2  6E17               	movwf	main@u8MaskPortA^(0+1280),c
+   386                           
+   387                           ;main.c: 82:     uint8_t u8MaskPortB = 0;
+   388   0017B4  0E00               	movlw	0
+   389   0017B6  6E18               	movwf	main@u8MaskPortB^(0+1280),c
+   390                           
+   391                           ;main.c: 83:     uint8_t u8MaskPortD = 0;
+   392   0017B8  0E00               	movlw	0
+   393   0017BA  6E19               	movwf	main@u8MaskPortD^(0+1280),c
+   394   0017BC                     
+   395                           ;main.c: 84:     uint8_t u8PinList1[] = {7};
+   396   0017BC  C524  F513         	movff	main@F16287,main@u8PinList1
+   397                           
+   398                           ;main.c: 85:     uint8_t u8PinList2[] = {0};
+   399   0017C0  0E00               	movlw	0
+   400   0017C2  6E14               	movwf	main@u8PinList2^(0+1280),c
+   401   0017C4                     
+   402                           ;main.c: 86:     uint8_t u8PinListPortA[] = {6, 7 };
+   403   0017C4  C522  F50E         	movff	main@F16291,main@u8PinListPortA
+   404   0017C8  C523  F50F         	movff	main@F16291+1,main@u8PinListPortA+1
+   405   0017CC                     
+   406                           ;main.c: 87:     uint8_t u8PinListPortB[] = {4, 5 };
+   407   0017CC  C520  F510         	movff	main@F16293,main@u8PinListPortB
+   408   0017D0  C521  F511         	movff	main@F16293+1,main@u8PinListPortB+1
+   409   0017D4                     
+   410                           ;main.c: 88:     uint8_t u8PinListPortD[] = {0, 1, 4, 5 };
+   411   0017D4  C51C  F50A         	movff	main@F16295,main@u8PinListPortD
+   412   0017D8  C51D  F50B         	movff	main@F16295+1,main@u8PinListPortD+1
+   413   0017DC  C51E  F50C         	movff	main@F16295+2,main@u8PinListPortD+2
+   414   0017E0  C51F  F50D         	movff	main@F16295+3,main@u8PinListPortD+3
+   415   0017E4                     
+   416                           ;main.c: 89:     IOPINS_vMaskGenerator(u8PinList1, 1, &u8Mask1);
+   417   0017E4  0E13               	movlw	low main@u8PinList1
+   418   0017E6  6E01               	movwf	IOPINS_vMaskGenerator@u8PinList^(0+1280),c
+   419   0017E8  0E05               	movlw	high main@u8PinList1
+   420   0017EA  6E02               	movwf	(IOPINS_vMaskGenerator@u8PinList+1)^(0+1280),c
+   421   0017EC  0E01               	movlw	1
+   422   0017EE  6E03               	movwf	IOPINS_vMaskGenerator@u8Pins^(0+1280),c
+   423   0017F0  0E15               	movlw	low main@u8Mask1
+   424   0017F2  6E04               	movwf	IOPINS_vMaskGenerator@u8PinMask^(0+1280),c
+   425   0017F4  0E05               	movlw	high main@u8Mask1
+   426   0017F6  6E05               	movwf	(IOPINS_vMaskGenerator@u8PinMask+1)^(0+1280),c
+   427   0017F8  ECF1  F00C         	call	_IOPINS_vMaskGenerator	;wreg free
+   428   0017FC                     
+   429                           ;main.c: 90:     IOPINS_vMaskGenerator(u8PinList2, 1, &u8Mask2);
+   430   0017FC  0E14               	movlw	low main@u8PinList2
+   431   0017FE  6E01               	movwf	IOPINS_vMaskGenerator@u8PinList^(0+1280),c
+   432   001800  0E05               	movlw	high main@u8PinList2
+   433   001802  6E02               	movwf	(IOPINS_vMaskGenerator@u8PinList+1)^(0+1280),c
+   434   001804  0E01               	movlw	1
+   435   001806  6E03               	movwf	IOPINS_vMaskGenerator@u8Pins^(0+1280),c
+   436   001808  0E16               	movlw	low main@u8Mask2
+   437   00180A  6E04               	movwf	IOPINS_vMaskGenerator@u8PinMask^(0+1280),c
+   438   00180C  0E05               	movlw	high main@u8Mask2
+   439   00180E  6E05               	movwf	(IOPINS_vMaskGenerator@u8PinMask+1)^(0+1280),c
+   440   001810  ECF1  F00C         	call	_IOPINS_vMaskGenerator	;wreg free
+   441   001814                     
+   442                           ;main.c: 91:     IOPINS_vMaskGenerator(u8PinListPortA, 2, &u8MaskPortA);
+   443   001814  0E0E               	movlw	low main@u8PinListPortA
+   444   001816  6E01               	movwf	IOPINS_vMaskGenerator@u8PinList^(0+1280),c
+   445   001818  0E05               	movlw	high main@u8PinListPortA
+   446   00181A  6E02               	movwf	(IOPINS_vMaskGenerator@u8PinList+1)^(0+1280),c
+   447   00181C  0E02               	movlw	2
+   448   00181E  6E03               	movwf	IOPINS_vMaskGenerator@u8Pins^(0+1280),c
+   449   001820  0E17               	movlw	low main@u8MaskPortA
+   450   001822  6E04               	movwf	IOPINS_vMaskGenerator@u8PinMask^(0+1280),c
+   451   001824  0E05               	movlw	high main@u8MaskPortA
+   452   001826  6E05               	movwf	(IOPINS_vMaskGenerator@u8PinMask+1)^(0+1280),c
+   453   001828  ECF1  F00C         	call	_IOPINS_vMaskGenerator	;wreg free
+   454   00182C                     
+   455                           ;main.c: 92:     IOPINS_vMaskGenerator(u8PinListPortB, 2, &u8MaskPortB);
+   456   00182C  0E10               	movlw	low main@u8PinListPortB
+   457   00182E  6E01               	movwf	IOPINS_vMaskGenerator@u8PinList^(0+1280),c
+   458   001830  0E05               	movlw	high main@u8PinListPortB
+   459   001832  6E02               	movwf	(IOPINS_vMaskGenerator@u8PinList+1)^(0+1280),c
+   460   001834  0E02               	movlw	2
+   461   001836  6E03               	movwf	IOPINS_vMaskGenerator@u8Pins^(0+1280),c
+   462   001838  0E18               	movlw	low main@u8MaskPortB
+   463   00183A  6E04               	movwf	IOPINS_vMaskGenerator@u8PinMask^(0+1280),c
+   464   00183C  0E05               	movlw	high main@u8MaskPortB
+   465   00183E  6E05               	movwf	(IOPINS_vMaskGenerator@u8PinMask+1)^(0+1280),c
+   466   001840  ECF1  F00C         	call	_IOPINS_vMaskGenerator	;wreg free
+   467   001844                     
+   468                           ;main.c: 93:     IOPINS_vMaskGenerator(u8PinListPortD, 4, &u8MaskPortD);
+   469   001844  0E0A               	movlw	low main@u8PinListPortD
+   470   001846  6E01               	movwf	IOPINS_vMaskGenerator@u8PinList^(0+1280),c
+   471   001848  0E05               	movlw	high main@u8PinListPortD
+   472   00184A  6E02               	movwf	(IOPINS_vMaskGenerator@u8PinList+1)^(0+1280),c
+   473   00184C  0E04               	movlw	4
+   474   00184E  6E03               	movwf	IOPINS_vMaskGenerator@u8Pins^(0+1280),c
+   475   001850  0E19               	movlw	low main@u8MaskPortD
+   476   001852  6E04               	movwf	IOPINS_vMaskGenerator@u8PinMask^(0+1280),c
+   477   001854  0E05               	movlw	high main@u8MaskPortD
+   478   001856  6E05               	movwf	(IOPINS_vMaskGenerator@u8PinMask+1)^(0+1280),c
+   479   001858  ECF1  F00C         	call	_IOPINS_vMaskGenerator	;wreg free
+   480   00185C                     
+   481                           ;main.c: 94:     IOPINS_vPortConfig(0, u8Mask2, 1, 0, 1);
+   482   00185C  C516  F501         	movff	main@u8Mask2,IOPINS_vPortConfig@u8PinMask
+   483   001860  0E01               	movlw	1
+   484   001862  6E02               	movwf	IOPINS_vPortConfig@u8Direction^(0+1280),c
+   485   001864  0E00               	movlw	0
+   486   001866  6E03               	movwf	IOPINS_vPortConfig@bWeakPU^(0+1280),c
+   487   001868  0E01               	movlw	1
+   488   00186A  6E04               	movwf	IOPINS_vPortConfig@bInputLevelSel^(0+1280),c
+   489   00186C  0E00               	movlw	0
+   490   00186E  EC81  F00A         	call	_IOPINS_vPortConfig
+   491   001872                     
+   492                           ;main.c: 95:     IOPINS_vPortInterruptConfig(0, u8Mask2, 1);
+   493   001872  C516  F501         	movff	main@u8Mask2,IOPINS_vPortInterruptConfig@u8PinMask
+   494   001876  0E01               	movlw	1
+   495   001878  6E02               	movwf	IOPINS_vPortInterruptConfig@bEdge^(0+1280),c
+   496   00187A  0E00               	movlw	0
+   497   00187C  ECB9  F00C         	call	_IOPINS_vPortInterruptConfig
+   498   001880                     
+   499                           ;main.c: 96:     IOPINS_vPortConfig(2, u8Mask1, 0, 0, 1);
+   500   001880  C515  F501         	movff	main@u8Mask1,IOPINS_vPortConfig@u8PinMask
+   501   001884  0E00               	movlw	0
+   502   001886  6E02               	movwf	IOPINS_vPortConfig@u8Direction^(0+1280),c
+   503   001888  0E00               	movlw	0
+   504   00188A  6E03               	movwf	IOPINS_vPortConfig@bWeakPU^(0+1280),c
+   505   00188C  0E01               	movlw	1
+   506   00188E  6E04               	movwf	IOPINS_vPortConfig@bInputLevelSel^(0+1280),c
+   507   001890  0E02               	movlw	2
+   508   001892  EC81  F00A         	call	_IOPINS_vPortConfig
+   509   001896                     
+   510                           ;main.c: 97:     IOPINS_vPortConfig(0, u8MaskPortA, 0, 0, 1);
+   511   001896  C517  F501         	movff	main@u8MaskPortA,IOPINS_vPortConfig@u8PinMask
+   512   00189A  0E00               	movlw	0
+   513   00189C  6E02               	movwf	IOPINS_vPortConfig@u8Direction^(0+1280),c
+   514   00189E  0E00               	movlw	0
+   515   0018A0  6E03               	movwf	IOPINS_vPortConfig@bWeakPU^(0+1280),c
+   516   0018A2  0E01               	movlw	1
+   517   0018A4  6E04               	movwf	IOPINS_vPortConfig@bInputLevelSel^(0+1280),c
+   518   0018A6  0E00               	movlw	0
+   519   0018A8  EC81  F00A         	call	_IOPINS_vPortConfig
+   520   0018AC                     
+   521                           ;main.c: 98:     IOPINS_vPortConfig(1, u8MaskPortB, 0, 0, 1);
+   522   0018AC  C518  F501         	movff	main@u8MaskPortB,IOPINS_vPortConfig@u8PinMask
+   523   0018B0  0E00               	movlw	0
+   524   0018B2  6E02               	movwf	IOPINS_vPortConfig@u8Direction^(0+1280),c
+   525   0018B4  0E00               	movlw	0
+   526   0018B6  6E03               	movwf	IOPINS_vPortConfig@bWeakPU^(0+1280),c
+   527   0018B8  0E01               	movlw	1
+   528   0018BA  6E04               	movwf	IOPINS_vPortConfig@bInputLevelSel^(0+1280),c
+   529   0018BC  0E01               	movlw	1
+   530   0018BE  EC81  F00A         	call	_IOPINS_vPortConfig
+   531   0018C2                     
+   532                           ;main.c: 99:     IOPINS_vPortConfig(3, u8MaskPortD, 0, 0, 1);
+   533   0018C2  C519  F501         	movff	main@u8MaskPortD,IOPINS_vPortConfig@u8PinMask
+   534   0018C6  0E00               	movlw	0
+   535   0018C8  6E02               	movwf	IOPINS_vPortConfig@u8Direction^(0+1280),c
+   536   0018CA  0E00               	movlw	0
+   537   0018CC  6E03               	movwf	IOPINS_vPortConfig@bWeakPU^(0+1280),c
+   538   0018CE  0E01               	movlw	1
+   539   0018D0  6E04               	movwf	IOPINS_vPortConfig@bInputLevelSel^(0+1280),c
+   540   0018D2  0E03               	movlw	3
+   541   0018D4  EC81  F00A         	call	_IOPINS_vPortConfig
+   542   0018D8                     l1450:
+   543                           
+   544                           ;main.c: 102:     {;main.c: 103:         if(IOPINS_bPinAInterruptRead(u8Mask2))
+   545   0018D8  5016               	movf	main@u8Mask2^(0+1280),w,c
+   546   0018DA  EC1C  F00D         	call	_IOPINS_bPinAInterruptRead
+   547   0018DE  0900               	iorlw	0
+   548   0018E0  B4D8               	btfsc	status,2,c
+   549   0018E2  EF75  F00C         	goto	u531
+   550   0018E6  EF77  F00C         	goto	u530
+   551   0018EA                     u531:
+   552   0018EA  EF79  F00C         	goto	l40
+   553   0018EE                     u530:
+   554   0018EE                     
+   555                           ;main.c: 104:         {;main.c: 105:             bState = 1;
+   556   0018EE  0E01               	movlw	1
+   557   0018F0  6E12               	movwf	main@bState^(0+1280),c
+   558   0018F2                     l40:
+   559                           
+   560                           ;main.c: 107:         if(bState)
+   561   0018F2  5012               	movf	main@bState^(0+1280),w,c
+   562   0018F4  B4D8               	btfsc	status,2,c
+   563   0018F6  EF7F  F00C         	goto	u541
+   564   0018FA  EF81  F00C         	goto	u540
+   565   0018FE                     u541:
+   566   0018FE  EF6C  F00C         	goto	l1450
+   567   001902                     u540:
+   568   001902                     
+   569                           ;main.c: 108:         {;main.c: 109:             IOPINS_vPortASet(u8MaskPortA);
+   570   001902  5017               	movf	main@u8MaskPortA^(0+1280),w,c
+   571   001904  EC7D  F00D         	call	_IOPINS_vPortASet
+   572                           
+   573                           ;main.c: 110:             IOPINS_vPortBSet(u8MaskPortB);
+   574   001908  5018               	movf	main@u8MaskPortB^(0+1280),w,c
+   575   00190A  EC78  F00D         	call	_IOPINS_vPortBSet
+   576                           
+   577                           ;main.c: 111:             IOPINS_vPortDSet(u8MaskPortD);
+   578   00190E  5019               	movf	main@u8MaskPortD^(0+1280),w,c
+   579   001910  EC6E  F00D         	call	_IOPINS_vPortDSet
+   580                           
+   581                           ;main.c: 112:             IOPINS_vPortCSet(u8Mask1);
+   582   001914  5015               	movf	main@u8Mask1^(0+1280),w,c
+   583   001916  EC73  F00D         	call	_IOPINS_vPortCSet
+   584   00191A                     
+   585                           ;main.c: 113:             for( i = 65535; i != 0; i-- );
+   586   00191A  681A               	setf	main@i^(0+1280),c
+   587   00191C  681B               	setf	(main@i+1)^(0+1280),c
+   588   00191E                     l1462:
+   589   00191E  061A               	decf	main@i^(0+1280),f,c
+   590   001920  A0D8               	btfss	status,0,c
+   591   001922  061B               	decf	(main@i+1)^(0+1280),f,c
+   592   001924  501A               	movf	main@i^(0+1280),w,c
+   593   001926  101B               	iorwf	(main@i+1)^(0+1280),w,c
+   594   001928  A4D8               	btfss	status,2,c
+   595   00192A  EF99  F00C         	goto	u551
+   596   00192E  EF9B  F00C         	goto	u550
+   597   001932                     u551:
+   598   001932  EF8F  F00C         	goto	l1462
+   599   001936                     u550:
+   600   001936                     
+   601                           ;main.c: 114:             IOPINS_vPortAClear(u8MaskPortA);
+   602   001936  5017               	movf	main@u8MaskPortA^(0+1280),w,c
+   603   001938  EC68  F00D         	call	_IOPINS_vPortAClear
+   604                           
+   605                           ;main.c: 115:             IOPINS_vPortBClear(u8MaskPortB);
+   606   00193C  5018               	movf	main@u8MaskPortB^(0+1280),w,c
+   607   00193E  EC62  F00D         	call	_IOPINS_vPortBClear
+   608                           
+   609                           ;main.c: 116:             IOPINS_vPortDClear(u8MaskPortD);
+   610   001942  5019               	movf	main@u8MaskPortD^(0+1280),w,c
+   611   001944  EC56  F00D         	call	_IOPINS_vPortDClear
+   612                           
+   613                           ;main.c: 117:             IOPINS_vPortCClear(u8Mask1);
+   614   001948  5015               	movf	main@u8Mask1^(0+1280),w,c
+   615   00194A  EC5C  F00D         	call	_IOPINS_vPortCClear
+   616   00194E                     
+   617                           ;main.c: 118:             for( i = 65535; i != 0; i-- );
+   618   00194E  681A               	setf	main@i^(0+1280),c
+   619   001950  681B               	setf	(main@i+1)^(0+1280),c
+   620   001952                     l1474:
+   621   001952  061A               	decf	main@i^(0+1280),f,c
+   622   001954  A0D8               	btfss	status,0,c
+   623   001956  061B               	decf	(main@i+1)^(0+1280),f,c
+   624   001958  501A               	movf	main@i^(0+1280),w,c
+   625   00195A  101B               	iorwf	(main@i+1)^(0+1280),w,c
+   626   00195C  A4D8               	btfss	status,2,c
+   627   00195E  EFB3  F00C         	goto	u561
+   628   001962  EFB5  F00C         	goto	u560
+   629   001966                     u561:
+   630   001966  EFA9  F00C         	goto	l1474
+   631   00196A                     u560:
+   632   00196A  EF6C  F00C         	goto	l1450
+   633   00196E  EFFE  F07F         	goto	start
+   634   001972                     __end_of_main:
+   635                           	callstack 0
+   636                           
+   637 ;; *************** function _IOPINS_vPortInterruptConfig *****************
+   638 ;; Defined at:
+   639 ;;		line 189 in file "IOPINS.c"
+   640 ;; Parameters:    Size  Location     Type
+   641 ;;  u8Port          1    wreg     unsigned char 
+   642 ;;  u8PinMask       1    0[COMRAM] unsigned char 
+   643 ;;  bEdge           1    1[COMRAM] _Bool 
+   644 ;; Auto vars:     Size  Location     Type
+   645 ;;  u8Port          1    2[COMRAM] unsigned char 
+   646 ;; Return value:  Size  Location     Type
+   647 ;;                  1    wreg      void 
+   648 ;; Registers used:
+   649 ;;		wreg, status,2, status,0
+   650 ;; Tracked objects:
+   651 ;;		On entry : 0/0
+   652 ;;		On exit  : 0/0
+   653 ;;		Unchanged: 0/0
+   654 ;; Data sizes:     COMRAM   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15  BANK1
+      +6  BANK17  BANK18  BANK19  BANK20
+   655 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   656 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   657 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   658 ;;      Totals:         3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   659 ;;Total ram usage:        3 bytes
+   660 ;; Hardware stack levels used: 1
+   661 ;; This function calls:
+   662 ;;		Nothing
+   663 ;; This function is called by:
+   664 ;;		_main
+   665 ;; This function uses a non-reentrant model
+   666 ;;
+   667                           
+   668                           	psect	text1
+   669   001972                     __ptext1:
+   670                           	callstack 0
+   671   001972                     _IOPINS_vPortInterruptConfig:
+   672                           	callstack 126
+   673                           
+   674                           ;incstack = 0
+   675                           ;IOPINS_vPortInterruptConfig@u8Port stored from wreg
+   676   001972  6E03               	movwf	IOPINS_vPortInterruptConfig@u8Port^(0+1280),c
+   677   001974                     
+   678                           ;IOPINS.c: 189: void IOPINS_vPortInterruptConfig(uint8_t u8Port, uint8_t u8PinMask, _Boo
+      +                          l bEdge);IOPINS.c: 190: {;IOPINS.c: 191:        switch(u8Port){
+   679   001974  EFD5  F00C         	goto	l1394
+   680   001978                     l1384:
+   681                           
+   682                           ;IOPINS.c: 193:             IOCAF = 0x00;
+   683   001978  0E00               	movlw	0
+   684   00197A  0104               	movlb	4	; () banked
+   685   00197C  6F07               	movwf	7,b	;volatile
+   686   00197E                     
+   687                           ; BSR set to: 4
+   688                           ;IOPINS.c: 194:             if(bEdge)
+   689   00197E  5002               	movf	IOPINS_vPortInterruptConfig@bEdge^(0+1280),w,c
+   690   001980  B4D8               	btfsc	status,2,c
+   691   001982  EFC5  F00C         	goto	u491
+   692   001986  EFC7  F00C         	goto	u490
+   693   00198A                     u491:
+   694   00198A  EFCE  F00C         	goto	l1390
+   695   00198E                     u490:
+   696   00198E                     
+   697                           ; BSR set to: 4
+   698                           ;IOPINS.c: 195:                 {;IOPINS.c: 196:                     IOCAP |= u8PinMask;
+   699   00198E  5001               	movf	IOPINS_vPortInterruptConfig@u8PinMask^(0+1280),w,c	;volatile
+   700   001990  1305               	iorwf	5,f,b	;volatile
+   701                           
+   702                           ;IOPINS.c: 197:                     IOCAN &= ~u8PinMask;
+   703   001992  5001               	movf	IOPINS_vPortInterruptConfig@u8PinMask^(0+1280),w,c	;volatile
+   704   001994  0AFF               	xorlw	255
+   705   001996  1706               	andwf	6,f,b	;volatile
+   706                           
+   707                           ;IOPINS.c: 198:                 }
+   708   001998  EFF0  F00C         	goto	l180
+   709   00199C                     l1390:
+   710                           
+   711                           ; BSR set to: 4
+   712                           ;IOPINS.c: 200:                 {;IOPINS.c: 201:                     IOCAP &= ~u8PinMask
+      +                          ;
+   713   00199C  5001               	movf	IOPINS_vPortInterruptConfig@u8PinMask^(0+1280),w,c	;volatile
+   714   00199E  0AFF               	xorlw	255
+   715   0019A0  1705               	andwf	5,f,b	;volatile
+   716                           
+   717                           ;IOPINS.c: 202:                     IOCAN |= u8PinMask;
+   718   0019A2  5001               	movf	IOPINS_vPortInterruptConfig@u8PinMask^(0+1280),w,c	;volatile
+   719   0019A4  1306               	iorwf	6,f,b	;volatile
+   720   0019A6  EFF0  F00C         	goto	l180
+   721   0019AA                     l1394:
+   722   0019AA  5003               	movf	IOPINS_vPortInterruptConfig@u8Port^(0+1280),w,c
+   723                           
+   724                           ; Switch size 1, requested type "simple"
+   725                           ; Number of cases is 6, Range of values is 0 to 5
+   726                           ; switch strategies available:
+   727                           ; Name         Instructions Cycles
+   728                           ; simple_byte           19    10 (average)
+   729                           ;	Chosen strategy is simple_byte
+   730   0019AC  0A00               	xorlw	0	; case 0
+   731   0019AE  B4D8               	btfsc	status,2,c
+   732   0019B0  EFBC  F00C         	goto	l1384
+   733   0019B4  0A01               	xorlw	1	; case 1
+   734   0019B6  B4D8               	btfsc	status,2,c
+   735   0019B8  EFF0  F00C         	goto	l180
+   736   0019BC  0A03               	xorlw	3	; case 2
+   737   0019BE  B4D8               	btfsc	status,2,c
+   738   0019C0  EFF0  F00C         	goto	l180
+   739   0019C4  0A01               	xorlw	1	; case 3
+   740   0019C6  B4D8               	btfsc	status,2,c
+   741   0019C8  EFF0  F00C         	goto	l180
+   742   0019CC  0A07               	xorlw	7	; case 4
+   743   0019CE  B4D8               	btfsc	status,2,c
+   744   0019D0  EFF0  F00C         	goto	l180
+   745   0019D4  0A01               	xorlw	1	; case 5
+   746   0019D6  B4D8               	btfsc	status,2,c
+   747   0019D8  EFF0  F00C         	goto	l180
+   748   0019DC  EFF0  F00C         	goto	l180
+   749   0019E0                     l180:
+   750   0019E0  0012               	return		;funcret
+   751   0019E2                     __end_of_IOPINS_vPortInterruptConfig:
+   752                           	callstack 0
+   753                           
+   754 ;; *************** function _IOPINS_vPortDSet *****************
+   755 ;; Defined at:
+   756 ;;		line 308 in file "IOPINS.c"
+   757 ;; Parameters:    Size  Location     Type
+   758 ;;  u8PinMask       1    wreg     unsigned char 
+   759 ;; Auto vars:     Size  Location     Type
+   760 ;;  u8PinMask       1    0[COMRAM] unsigned char 
+   761 ;; Return value:  Size  Location     Type
+   762 ;;                  1    wreg      void 
+   763 ;; Registers used:
+   764 ;;		wreg, status,2, status,0
+   765 ;; Tracked objects:
+   766 ;;		On entry : 0/0
+   767 ;;		On exit  : 0/0
+   768 ;;		Unchanged: 0/0
+   769 ;; Data sizes:     COMRAM   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15  BANK1
+      +6  BANK17  BANK18  BANK19  BANK20
+   770 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   771 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   772 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   773 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   774 ;;Total ram usage:        1 bytes
+   775 ;; Hardware stack levels used: 1
+   776 ;; This function calls:
+   777 ;;		Nothing
+   778 ;; This function is called by:
+   779 ;;		_main
+   780 ;; This function uses a non-reentrant model
+   781 ;;
+   782                           
+   783                           	psect	text2
+   784   001ADC                     __ptext2:
+   785                           	callstack 0
+   786   001ADC                     _IOPINS_vPortDSet:
+   787                           	callstack 126
+   788                           
+   789                           ;incstack = 0
+   790                           ;IOPINS_vPortDSet@u8PinMask stored from wreg
+   791   001ADC  6E01               	movwf	IOPINS_vPortDSet@u8PinMask^(0+1280),c
+   792   001ADE                     
+   793                           ;IOPINS.c: 308: void IOPINS_vPortDSet(uint8_t u8PinMask);IOPINS.c: 309: {;IOPINS.c: 310:
+      +                               LATD += u8PinMask;
+   794   001ADE  5001               	movf	IOPINS_vPortDSet@u8PinMask^(0+1280),w,c	;volatile
+   795   001AE0  0101               	movlb	1	; () banked
+   796   001AE2  2743               	addwf	67,f,b	;volatile
+   797   001AE4                     
+   798                           ; BSR set to: 1
+   799   001AE4  0012               	return		;funcret
+   800   001AE6                     __end_of_IOPINS_vPortDSet:
+   801                           	callstack 0
+   802                           
+   803 ;; *************** function _IOPINS_vPortDClear *****************
+   804 ;; Defined at:
+   805 ;;		line 313 in file "IOPINS.c"
+   806 ;; Parameters:    Size  Location     Type
+   807 ;;  u8PinMask       1    wreg     unsigned char 
+   808 ;; Auto vars:     Size  Location     Type
+   809 ;;  u8PinMask       1    0[COMRAM] unsigned char 
+   810 ;; Return value:  Size  Location     Type
+   811 ;;                  1    wreg      void 
+   812 ;; Registers used:
+   813 ;;		wreg, status,2, status,0
+   814 ;; Tracked objects:
+   815 ;;		On entry : 0/0
+   816 ;;		On exit  : 0/0
+   817 ;;		Unchanged: 0/0
+   818 ;; Data sizes:     COMRAM   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15  BANK1
+      +6  BANK17  BANK18  BANK19  BANK20
+   819 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   820 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   821 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   822 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   823 ;;Total ram usage:        1 bytes
+   824 ;; Hardware stack levels used: 1
+   825 ;; This function calls:
+   826 ;;		Nothing
+   827 ;; This function is called by:
+   828 ;;		_main
+   829 ;; This function uses a non-reentrant model
+   830 ;;
+   831                           
+   832                           	psect	text3
+   833   001AAC                     __ptext3:
+   834                           	callstack 0
+   835   001AAC                     _IOPINS_vPortDClear:
+   836                           	callstack 126
+   837                           
+   838                           ; BSR set to: 1
+   839                           ;incstack = 0
+   840                           ;IOPINS_vPortDClear@u8PinMask stored from wreg
+   841   001AAC  6E01               	movwf	IOPINS_vPortDClear@u8PinMask^(0+1280),c
+   842   001AAE                     
+   843                           ;IOPINS.c: 313: void IOPINS_vPortDClear(uint8_t u8PinMask);IOPINS.c: 314: {;IOPINS.c: 31
+      +                          5:     LATD &= ~u8PinMask;
+   844   001AAE  5001               	movf	IOPINS_vPortDClear@u8PinMask^(0+1280),w,c	;volatile
+   845   001AB0  0AFF               	xorlw	255
+   846   001AB2  0101               	movlb	1	; () banked
+   847   001AB4  1743               	andwf	67,f,b	;volatile
+   848   001AB6                     
+   849                           ; BSR set to: 1
+   850   001AB6  0012               	return		;funcret
+   851   001AB8                     __end_of_IOPINS_vPortDClear:
+   852                           	callstack 0
+   853                           
+   854 ;; *************** function _IOPINS_vPortConfig *****************
+   855 ;; Defined at:
+   856 ;;		line 69 in file "IOPINS.c"
+   857 ;; Parameters:    Size  Location     Type
+   858 ;;  u8Port          1    wreg     unsigned char 
+   859 ;;  u8PinMask       1    0[COMRAM] unsigned char 
+   860 ;;  u8Direction     1    1[COMRAM] unsigned char 
+   861 ;;  bWeakPU         1    2[COMRAM] unsigned char 
+   862 ;;  bInputLevelS    1    3[COMRAM] _Bool 
+   863 ;; Auto vars:     Size  Location     Type
+   864 ;;  u8Port          1    4[COMRAM] unsigned char 
+   865 ;; Return value:  Size  Location     Type
+   866 ;;                  1    wreg      void 
+   867 ;; Registers used:
+   868 ;;		wreg, status,2, status,0
+   869 ;; Tracked objects:
+   870 ;;		On entry : 0/0
+   871 ;;		On exit  : 0/0
+   872 ;;		Unchanged: 0/0
+   873 ;; Data sizes:     COMRAM   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15  BANK1
+      +6  BANK17  BANK18  BANK19  BANK20
+   874 ;;      Params:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   875 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   876 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   877 ;;      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   878 ;;Total ram usage:        5 bytes
+   879 ;; Hardware stack levels used: 1
+   880 ;; This function calls:
+   881 ;;		Nothing
+   882 ;; This function is called by:
+   883 ;;		_main
+   884 ;; This function uses a non-reentrant model
+   885 ;;
+   886                           
+   887                           	psect	text4
+   888   001502                     __ptext4:
+   889                           	callstack 0
+   890   001502                     _IOPINS_vPortConfig:
+   891                           	callstack 126
+   892                           
+   893                           ; BSR set to: 1
+   894                           ;incstack = 0
+   895                           ;IOPINS_vPortConfig@u8Port stored from wreg
+   896   001502  6E05               	movwf	IOPINS_vPortConfig@u8Port^(0+1280),c
+   897   001504                     
+   898                           ;IOPINS.c: 69: void IOPINS_vPortConfig(uint8_t u8Port, uint8_t u8PinMask, uint8_t u8Dire
+      +                          ction, uint8_t bWeakPU, _Bool bInputLevelSel);IOPINS.c: 70: {;IOPINS.c: 71:     switch(u
+      +                          8Port){
+   899   001504  EFB6  F00B         	goto	l1380
+   900   001508                     l1270:
+   901                           
+   902                           ;IOPINS.c: 74:             if(u8Direction == 0)
+   903   001508  5002               	movf	IOPINS_vPortConfig@u8Direction^(0+1280),w,c
+   904   00150A  A4D8               	btfss	status,2,c
+   905   00150C  EF8A  F00A         	goto	u311
+   906   001510  EF8C  F00A         	goto	u310
+   907   001514                     u311:
+   908   001514  EF92  F00A         	goto	l1274
+   909   001518                     u310:
+   910   001518                     
+   911                           ;IOPINS.c: 75:                 TRISA = ~u8PinMask;
+   912   001518  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c
+   913   00151A  0AFF               	xorlw	255
+   914   00151C  0101               	movlb	1	; () banked
+   915   00151E  6F48               	movwf	72,b	;volatile
+   916   001520  EFD1  F00B         	goto	l167
+   917   001524                     l1274:
+   918                           
+   919                           ;IOPINS.c: 77:                 {;IOPINS.c: 78:                     TRISA += u8PinMask;
+   920   001524  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+   921   001526  0101               	movlb	1	; () banked
+   922   001528  2748               	addwf	72,f,b	;volatile
+   923   00152A                     
+   924                           ; BSR set to: 1
+   925                           ;IOPINS.c: 80:                     if(bWeakPU)
+   926   00152A  5003               	movf	IOPINS_vPortConfig@bWeakPU^(0+1280),w,c
+   927   00152C  B4D8               	btfsc	status,2,c
+   928   00152E  EF9B  F00A         	goto	u321
+   929   001532  EF9D  F00A         	goto	u320
+   930   001536                     u321:
+   931   001536  EFA2  F00A         	goto	l1280
+   932   00153A                     u320:
+   933   00153A                     
+   934                           ; BSR set to: 1
+   935                           ;IOPINS.c: 81:                         WPUA += u8PinMask;
+   936   00153A  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+   937   00153C  0104               	movlb	4	; () banked
+   938   00153E  2701               	addwf	1,f,b	;volatile
+   939   001540  EFA6  F00A         	goto	l1282
+   940   001544                     l1280:
+   941                           
+   942                           ; BSR set to: 1
+   943                           ;IOPINS.c: 83:                         WPUA &= ~u8PinMask;
+   944   001544  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+   945   001546  0AFF               	xorlw	255
+   946   001548  0104               	movlb	4	; () banked
+   947   00154A  1701               	andwf	1,f,b	;volatile
+   948   00154C                     l1282:
+   949                           
+   950                           ; BSR set to: 4
+   951                           ;IOPINS.c: 85:                     if(bInputLevelSel)
+   952   00154C  5004               	movf	IOPINS_vPortConfig@bInputLevelSel^(0+1280),w,c
+   953   00154E  B4D8               	btfsc	status,2,c
+   954   001550  EFAC  F00A         	goto	u331
+   955   001554  EFAE  F00A         	goto	u330
+   956   001558                     u331:
+   957   001558  EFB2  F00A         	goto	l1286
+   958   00155C                     u330:
+   959   00155C                     
+   960                           ; BSR set to: 4
+   961                           ;IOPINS.c: 86:                         INLVLA += u8PinMask;
+   962   00155C  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+   963   00155E  2704               	addwf	4,f,b	;volatile
+   964   001560  EFD1  F00B         	goto	l167
+   965   001564                     l1286:
+   966                           
+   967                           ; BSR set to: 4
+   968                           ;IOPINS.c: 88:                         INLVLA &= ~u8PinMask;
+   969   001564  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+   970   001566  0AFF               	xorlw	255
+   971   001568  1704               	andwf	4,f,b	;volatile
+   972   00156A  EFD1  F00B         	goto	l167
+   973   00156E                     l1288:
+   974                           
+   975                           ;IOPINS.c: 93:             if(u8Direction == 0)
+   976   00156E  5002               	movf	IOPINS_vPortConfig@u8Direction^(0+1280),w,c
+   977   001570  A4D8               	btfss	status,2,c
+   978   001572  EFBD  F00A         	goto	u341
+   979   001576  EFBF  F00A         	goto	u340
+   980   00157A                     u341:
+   981   00157A  EFC5  F00A         	goto	l1292
+   982   00157E                     u340:
+   983   00157E                     
+   984                           ;IOPINS.c: 94:                 TRISB &= ~u8PinMask;
+   985   00157E  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+   986   001580  0AFF               	xorlw	255
+   987   001582  0101               	movlb	1	; () banked
+   988   001584  1749               	andwf	73,f,b	;volatile
+   989   001586  EFD1  F00B         	goto	l167
+   990   00158A                     l1292:
+   991                           
+   992                           ;IOPINS.c: 96:                 {;IOPINS.c: 97:                     TRISB += u8PinMask;
+   993   00158A  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+   994   00158C  0101               	movlb	1	; () banked
+   995   00158E  2749               	addwf	73,f,b	;volatile
+   996   001590                     
+   997                           ; BSR set to: 1
+   998                           ;IOPINS.c: 99:                     if(bWeakPU)
+   999   001590  5003               	movf	IOPINS_vPortConfig@bWeakPU^(0+1280),w,c
+  1000   001592  B4D8               	btfsc	status,2,c
+  1001   001594  EFCE  F00A         	goto	u351
+  1002   001598  EFD0  F00A         	goto	u350
+  1003   00159C                     u351:
+  1004   00159C  EFD5  F00A         	goto	l1298
+  1005   0015A0                     u350:
+  1006   0015A0                     
+  1007                           ; BSR set to: 1
+  1008                           ;IOPINS.c: 100:                         WPUB += u8PinMask;
+  1009   0015A0  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1010   0015A2  0104               	movlb	4	; () banked
+  1011   0015A4  2709               	addwf	9,f,b	;volatile
+  1012   0015A6  EFD9  F00A         	goto	l1300
+  1013   0015AA                     l1298:
+  1014                           
+  1015                           ; BSR set to: 1
+  1016                           ;IOPINS.c: 102:                         WPUB &= ~u8PinMask;
+  1017   0015AA  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1018   0015AC  0AFF               	xorlw	255
+  1019   0015AE  0104               	movlb	4	; () banked
+  1020   0015B0  1709               	andwf	9,f,b	;volatile
+  1021   0015B2                     l1300:
+  1022                           
+  1023                           ; BSR set to: 4
+  1024                           ;IOPINS.c: 104:                     if(bInputLevelSel)
+  1025   0015B2  5004               	movf	IOPINS_vPortConfig@bInputLevelSel^(0+1280),w,c
+  1026   0015B4  B4D8               	btfsc	status,2,c
+  1027   0015B6  EFDF  F00A         	goto	u361
+  1028   0015BA  EFE1  F00A         	goto	u360
+  1029   0015BE                     u361:
+  1030   0015BE  EFE5  F00A         	goto	l1304
+  1031   0015C2                     u360:
+  1032   0015C2                     
+  1033                           ; BSR set to: 4
+  1034                           ;IOPINS.c: 105:                         INLVLB += u8PinMask;
+  1035   0015C2  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1036   0015C4  270C               	addwf	12,f,b	;volatile
+  1037   0015C6  EFD1  F00B         	goto	l167
+  1038   0015CA                     l1304:
+  1039                           
+  1040                           ; BSR set to: 4
+  1041                           ;IOPINS.c: 107:                         INLVLB &= ~u8PinMask;
+  1042   0015CA  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1043   0015CC  0AFF               	xorlw	255
+  1044   0015CE  170C               	andwf	12,f,b	;volatile
+  1045   0015D0  EFD1  F00B         	goto	l167
+  1046   0015D4                     l1306:
+  1047                           
+  1048                           ;IOPINS.c: 112:             if(u8Direction == 0)
+  1049   0015D4  5002               	movf	IOPINS_vPortConfig@u8Direction^(0+1280),w,c
+  1050   0015D6  A4D8               	btfss	status,2,c
+  1051   0015D8  EFF0  F00A         	goto	u371
+  1052   0015DC  EFF2  F00A         	goto	u370
+  1053   0015E0                     u371:
+  1054   0015E0  EFF8  F00A         	goto	l1310
+  1055   0015E4                     u370:
+  1056   0015E4                     
+  1057                           ;IOPINS.c: 113:                 TRISC &= ~u8PinMask;
+  1058   0015E4  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1059   0015E6  0AFF               	xorlw	255
+  1060   0015E8  0101               	movlb	1	; () banked
+  1061   0015EA  174A               	andwf	74,f,b	;volatile
+  1062   0015EC  EFD1  F00B         	goto	l167
+  1063   0015F0                     l1310:
+  1064                           
+  1065                           ;IOPINS.c: 115:                 {;IOPINS.c: 116:                     TRISC += u8PinMask;
+  1066   0015F0  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1067   0015F2  0101               	movlb	1	; () banked
+  1068   0015F4  274A               	addwf	74,f,b	;volatile
+  1069   0015F6                     
+  1070                           ; BSR set to: 1
+  1071                           ;IOPINS.c: 118:                     if(bWeakPU)
+  1072   0015F6  5003               	movf	IOPINS_vPortConfig@bWeakPU^(0+1280),w,c
+  1073   0015F8  B4D8               	btfsc	status,2,c
+  1074   0015FA  EF01  F00B         	goto	u381
+  1075   0015FE  EF03  F00B         	goto	u380
+  1076   001602                     u381:
+  1077   001602  EF08  F00B         	goto	l1316
+  1078   001606                     u380:
+  1079   001606                     
+  1080                           ; BSR set to: 1
+  1081                           ;IOPINS.c: 119:                         WPUC += u8PinMask;
+  1082   001606  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1083   001608  0104               	movlb	4	; () banked
+  1084   00160A  2711               	addwf	17,f,b	;volatile
+  1085   00160C  EF0C  F00B         	goto	l1318
+  1086   001610                     l1316:
+  1087                           
+  1088                           ; BSR set to: 1
+  1089                           ;IOPINS.c: 121:                         WPUC &= ~u8PinMask;
+  1090   001610  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1091   001612  0AFF               	xorlw	255
+  1092   001614  0104               	movlb	4	; () banked
+  1093   001616  1711               	andwf	17,f,b	;volatile
+  1094   001618                     l1318:
+  1095                           
+  1096                           ; BSR set to: 4
+  1097                           ;IOPINS.c: 123:                     if(bInputLevelSel)
+  1098   001618  5004               	movf	IOPINS_vPortConfig@bInputLevelSel^(0+1280),w,c
+  1099   00161A  B4D8               	btfsc	status,2,c
+  1100   00161C  EF12  F00B         	goto	u391
+  1101   001620  EF14  F00B         	goto	u390
+  1102   001624                     u391:
+  1103   001624  EF18  F00B         	goto	l1322
+  1104   001628                     u390:
+  1105   001628                     
+  1106                           ; BSR set to: 4
+  1107                           ;IOPINS.c: 124:                         INLVLC += u8PinMask;
+  1108   001628  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1109   00162A  2714               	addwf	20,f,b	;volatile
+  1110   00162C  EFD1  F00B         	goto	l167
+  1111   001630                     l1322:
+  1112                           
+  1113                           ; BSR set to: 4
+  1114                           ;IOPINS.c: 126:                         INLVLC &= ~u8PinMask;
+  1115   001630  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1116   001632  0AFF               	xorlw	255
+  1117   001634  1714               	andwf	20,f,b	;volatile
+  1118   001636  EFD1  F00B         	goto	l167
+  1119   00163A                     l1324:
+  1120                           
+  1121                           ;IOPINS.c: 131:             if(u8Direction == 0)
+  1122   00163A  5002               	movf	IOPINS_vPortConfig@u8Direction^(0+1280),w,c
+  1123   00163C  A4D8               	btfss	status,2,c
+  1124   00163E  EF23  F00B         	goto	u401
+  1125   001642  EF25  F00B         	goto	u400
+  1126   001646                     u401:
+  1127   001646  EF2B  F00B         	goto	l1328
+  1128   00164A                     u400:
+  1129   00164A                     
+  1130                           ;IOPINS.c: 132:                 TRISD &= ~u8PinMask;
+  1131   00164A  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1132   00164C  0AFF               	xorlw	255
+  1133   00164E  0101               	movlb	1	; () banked
+  1134   001650  174B               	andwf	75,f,b	;volatile
+  1135   001652  EFD1  F00B         	goto	l167
+  1136   001656                     l1328:
+  1137                           
+  1138                           ;IOPINS.c: 134:                 {;IOPINS.c: 135:                     TRISD += u8PinMask;
+  1139   001656  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1140   001658  0101               	movlb	1	; () banked
+  1141   00165A  274B               	addwf	75,f,b	;volatile
+  1142   00165C                     
+  1143                           ; BSR set to: 1
+  1144                           ;IOPINS.c: 137:                     if(bWeakPU)
+  1145   00165C  5003               	movf	IOPINS_vPortConfig@bWeakPU^(0+1280),w,c
+  1146   00165E  B4D8               	btfsc	status,2,c
+  1147   001660  EF34  F00B         	goto	u411
+  1148   001664  EF36  F00B         	goto	u410
+  1149   001668                     u411:
+  1150   001668  EF3B  F00B         	goto	l1334
+  1151   00166C                     u410:
+  1152   00166C                     
+  1153                           ; BSR set to: 1
+  1154                           ;IOPINS.c: 138:                         WPUD += u8PinMask;
+  1155   00166C  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1156   00166E  0104               	movlb	4	; () banked
+  1157   001670  2719               	addwf	25,f,b	;volatile
+  1158   001672  EF3F  F00B         	goto	l1336
+  1159   001676                     l1334:
+  1160                           
+  1161                           ; BSR set to: 1
+  1162                           ;IOPINS.c: 140:                         WPUD &= ~u8PinMask;
+  1163   001676  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1164   001678  0AFF               	xorlw	255
+  1165   00167A  0104               	movlb	4	; () banked
+  1166   00167C  1719               	andwf	25,f,b	;volatile
+  1167   00167E                     l1336:
+  1168                           
+  1169                           ; BSR set to: 4
+  1170                           ;IOPINS.c: 142:                     if(bInputLevelSel)
+  1171   00167E  5004               	movf	IOPINS_vPortConfig@bInputLevelSel^(0+1280),w,c
+  1172   001680  B4D8               	btfsc	status,2,c
+  1173   001682  EF45  F00B         	goto	u421
+  1174   001686  EF47  F00B         	goto	u420
+  1175   00168A                     u421:
+  1176   00168A  EF4B  F00B         	goto	l1340
+  1177   00168E                     u420:
+  1178   00168E                     
+  1179                           ; BSR set to: 4
+  1180                           ;IOPINS.c: 143:                         INLVLD += u8PinMask;
+  1181   00168E  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1182   001690  271C               	addwf	28,f,b	;volatile
+  1183   001692  EFD1  F00B         	goto	l167
+  1184   001696                     l1340:
+  1185                           
+  1186                           ; BSR set to: 4
+  1187                           ;IOPINS.c: 145:                         INLVLD &= ~u8PinMask;
+  1188   001696  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1189   001698  0AFF               	xorlw	255
+  1190   00169A  171C               	andwf	28,f,b	;volatile
+  1191   00169C  EFD1  F00B         	goto	l167
+  1192   0016A0                     l1342:
+  1193                           
+  1194                           ;IOPINS.c: 150:             if(u8Direction == 0)
+  1195   0016A0  5002               	movf	IOPINS_vPortConfig@u8Direction^(0+1280),w,c
+  1196   0016A2  A4D8               	btfss	status,2,c
+  1197   0016A4  EF56  F00B         	goto	u431
+  1198   0016A8  EF58  F00B         	goto	u430
+  1199   0016AC                     u431:
+  1200   0016AC  EF5E  F00B         	goto	l1346
+  1201   0016B0                     u430:
+  1202   0016B0                     
+  1203                           ;IOPINS.c: 151:                 TRISE &= ~u8PinMask;
+  1204   0016B0  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1205   0016B2  0AFF               	xorlw	255
+  1206   0016B4  0101               	movlb	1	; () banked
+  1207   0016B6  174C               	andwf	76,f,b	;volatile
+  1208   0016B8  EFD1  F00B         	goto	l167
+  1209   0016BC                     l1346:
+  1210                           
+  1211                           ;IOPINS.c: 153:                 {;IOPINS.c: 154:                     TRISE += u8PinMask;
+  1212   0016BC  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1213   0016BE  0101               	movlb	1	; () banked
+  1214   0016C0  274C               	addwf	76,f,b	;volatile
+  1215   0016C2                     
+  1216                           ; BSR set to: 1
+  1217                           ;IOPINS.c: 156:                     if(bWeakPU)
+  1218   0016C2  5003               	movf	IOPINS_vPortConfig@bWeakPU^(0+1280),w,c
+  1219   0016C4  B4D8               	btfsc	status,2,c
+  1220   0016C6  EF67  F00B         	goto	u441
+  1221   0016CA  EF69  F00B         	goto	u440
+  1222   0016CE                     u441:
+  1223   0016CE  EF6E  F00B         	goto	l1352
+  1224   0016D2                     u440:
+  1225   0016D2                     
+  1226                           ; BSR set to: 1
+  1227                           ;IOPINS.c: 157:                         WPUE += u8PinMask;
+  1228   0016D2  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1229   0016D4  0104               	movlb	4	; () banked
+  1230   0016D6  2721               	addwf	33,f,b	;volatile
+  1231   0016D8  EF72  F00B         	goto	l1354
+  1232   0016DC                     l1352:
+  1233                           
+  1234                           ; BSR set to: 1
+  1235                           ;IOPINS.c: 159:                         WPUE &= ~u8PinMask;
+  1236   0016DC  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1237   0016DE  0AFF               	xorlw	255
+  1238   0016E0  0104               	movlb	4	; () banked
+  1239   0016E2  1721               	andwf	33,f,b	;volatile
+  1240   0016E4                     l1354:
+  1241                           
+  1242                           ; BSR set to: 4
+  1243                           ;IOPINS.c: 161:                     if(bInputLevelSel)
+  1244   0016E4  5004               	movf	IOPINS_vPortConfig@bInputLevelSel^(0+1280),w,c
+  1245   0016E6  B4D8               	btfsc	status,2,c
+  1246   0016E8  EF78  F00B         	goto	u451
+  1247   0016EC  EF7A  F00B         	goto	u450
+  1248   0016F0                     u451:
+  1249   0016F0  EF7E  F00B         	goto	l1358
+  1250   0016F4                     u450:
+  1251   0016F4                     
+  1252                           ; BSR set to: 4
+  1253                           ;IOPINS.c: 162:                         INLVLE += u8PinMask;
+  1254   0016F4  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1255   0016F6  2724               	addwf	36,f,b	;volatile
+  1256   0016F8  EFD1  F00B         	goto	l167
+  1257   0016FC                     l1358:
+  1258                           
+  1259                           ; BSR set to: 4
+  1260                           ;IOPINS.c: 164:                         INLVLE &= ~u8PinMask;
+  1261   0016FC  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1262   0016FE  0AFF               	xorlw	255
+  1263   001700  1724               	andwf	36,f,b	;volatile
+  1264   001702  EFD1  F00B         	goto	l167
+  1265   001706                     l1360:
+  1266                           
+  1267                           ;IOPINS.c: 169:             if(u8Direction == 0)
+  1268   001706  5002               	movf	IOPINS_vPortConfig@u8Direction^(0+1280),w,c
+  1269   001708  A4D8               	btfss	status,2,c
+  1270   00170A  EF89  F00B         	goto	u461
+  1271   00170E  EF8B  F00B         	goto	u460
+  1272   001712                     u461:
+  1273   001712  EF91  F00B         	goto	l1364
+  1274   001716                     u460:
+  1275   001716                     
+  1276                           ;IOPINS.c: 170:                 TRISF &= ~u8PinMask;
+  1277   001716  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1278   001718  0AFF               	xorlw	255
+  1279   00171A  0101               	movlb	1	; () banked
+  1280   00171C  174D               	andwf	77,f,b	;volatile
+  1281   00171E  EFD1  F00B         	goto	l167
+  1282   001722                     l1364:
+  1283                           
+  1284                           ;IOPINS.c: 172:                 {;IOPINS.c: 173:                 TRISF += u8PinMask;
+  1285   001722  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1286   001724  0101               	movlb	1	; () banked
+  1287   001726  274D               	addwf	77,f,b	;volatile
+  1288   001728                     
+  1289                           ; BSR set to: 1
+  1290                           ;IOPINS.c: 175:                 if(bWeakPU)
+  1291   001728  5003               	movf	IOPINS_vPortConfig@bWeakPU^(0+1280),w,c
+  1292   00172A  B4D8               	btfsc	status,2,c
+  1293   00172C  EF9A  F00B         	goto	u471
+  1294   001730  EF9C  F00B         	goto	u470
+  1295   001734                     u471:
+  1296   001734  EFA1  F00B         	goto	l1370
+  1297   001738                     u470:
+  1298   001738                     
+  1299                           ; BSR set to: 1
+  1300                           ;IOPINS.c: 176:                     WPUF += u8PinMask;
+  1301   001738  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1302   00173A  0104               	movlb	4	; () banked
+  1303   00173C  2729               	addwf	41,f,b	;volatile
+  1304   00173E  EFA5  F00B         	goto	l1372
+  1305   001742                     l1370:
+  1306                           
+  1307                           ; BSR set to: 1
+  1308                           ;IOPINS.c: 178:                     WPUF &= ~u8PinMask;
+  1309   001742  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1310   001744  0AFF               	xorlw	255
+  1311   001746  0104               	movlb	4	; () banked
+  1312   001748  1729               	andwf	41,f,b	;volatile
+  1313   00174A                     l1372:
+  1314                           
+  1315                           ; BSR set to: 4
+  1316                           ;IOPINS.c: 180:                 if(bInputLevelSel)
+  1317   00174A  5004               	movf	IOPINS_vPortConfig@bInputLevelSel^(0+1280),w,c
+  1318   00174C  B4D8               	btfsc	status,2,c
+  1319   00174E  EFAB  F00B         	goto	u481
+  1320   001752  EFAD  F00B         	goto	u480
+  1321   001756                     u481:
+  1322   001756  EFB1  F00B         	goto	l1376
+  1323   00175A                     u480:
+  1324   00175A                     
+  1325                           ; BSR set to: 4
+  1326                           ;IOPINS.c: 181:                     INLVLF += u8PinMask;
+  1327   00175A  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1328   00175C  272C               	addwf	44,f,b	;volatile
+  1329   00175E  EFD1  F00B         	goto	l167
+  1330   001762                     l1376:
+  1331                           
+  1332                           ; BSR set to: 4
+  1333                           ;IOPINS.c: 183:                     INLVLF &= ~u8PinMask;
+  1334   001762  5001               	movf	IOPINS_vPortConfig@u8PinMask^(0+1280),w,c	;volatile
+  1335   001764  0AFF               	xorlw	255
+  1336   001766  172C               	andwf	44,f,b	;volatile
+  1337   001768  EFD1  F00B         	goto	l167
+  1338   00176C                     l1380:
+  1339   00176C  5005               	movf	IOPINS_vPortConfig@u8Port^(0+1280),w,c
+  1340                           
+  1341                           ; Switch size 1, requested type "simple"
+  1342                           ; Number of cases is 6, Range of values is 0 to 5
+  1343                           ; switch strategies available:
+  1344                           ; Name         Instructions Cycles
+  1345                           ; simple_byte           19    10 (average)
+  1346                           ;	Chosen strategy is simple_byte
+  1347   00176E  0A00               	xorlw	0	; case 0
+  1348   001770  B4D8               	btfsc	status,2,c
+  1349   001772  EF84  F00A         	goto	l1270
+  1350   001776  0A01               	xorlw	1	; case 1
+  1351   001778  B4D8               	btfsc	status,2,c
+  1352   00177A  EFB7  F00A         	goto	l1288
+  1353   00177E  0A03               	xorlw	3	; case 2
+  1354   001780  B4D8               	btfsc	status,2,c
+  1355   001782  EFEA  F00A         	goto	l1306
+  1356   001786  0A01               	xorlw	1	; case 3
+  1357   001788  B4D8               	btfsc	status,2,c
+  1358   00178A  EF1D  F00B         	goto	l1324
+  1359   00178E  0A07               	xorlw	7	; case 4
+  1360   001790  B4D8               	btfsc	status,2,c
+  1361   001792  EF50  F00B         	goto	l1342
+  1362   001796  0A01               	xorlw	1	; case 5
+  1363   001798  B4D8               	btfsc	status,2,c
+  1364   00179A  EF83  F00B         	goto	l1360
+  1365   00179E  EFD1  F00B         	goto	l167
+  1366   0017A2                     l167:
+  1367   0017A2  0012               	return		;funcret
+  1368   0017A4                     __end_of_IOPINS_vPortConfig:
+  1369                           	callstack 0
+  1370                           
+  1371 ;; *************** function _IOPINS_vPortCSet *****************
+  1372 ;; Defined at:
+  1373 ;;		line 284 in file "IOPINS.c"
+  1374 ;; Parameters:    Size  Location     Type
+  1375 ;;  u8PinMask       1    wreg     unsigned char 
+  1376 ;; Auto vars:     Size  Location     Type
+  1377 ;;  u8PinMask       1    0[COMRAM] unsigned char 
+  1378 ;; Return value:  Size  Location     Type
+  1379 ;;                  1    wreg      void 
+  1380 ;; Registers used:
+  1381 ;;		wreg, status,2, status,0
+  1382 ;; Tracked objects:
+  1383 ;;		On entry : 0/0
+  1384 ;;		On exit  : 0/0
+  1385 ;;		Unchanged: 0/0
+  1386 ;; Data sizes:     COMRAM   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15  BANK1
+      +6  BANK17  BANK18  BANK19  BANK20
+  1387 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1388 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1389 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1390 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1391 ;;Total ram usage:        1 bytes
+  1392 ;; Hardware stack levels used: 1
+  1393 ;; This function calls:
+  1394 ;;		Nothing
+  1395 ;; This function is called by:
+  1396 ;;		_main
+  1397 ;; This function uses a non-reentrant model
+  1398 ;;
+  1399                           
+  1400                           	psect	text5
+  1401   001AE6                     __ptext5:
+  1402                           	callstack 0
+  1403   001AE6                     _IOPINS_vPortCSet:
+  1404                           	callstack 126
+  1405                           
+  1406                           ;incstack = 0
+  1407                           ;IOPINS_vPortCSet@u8PinMask stored from wreg
+  1408   001AE6  6E01               	movwf	IOPINS_vPortCSet@u8PinMask^(0+1280),c
+  1409   001AE8                     
+  1410                           ;IOPINS.c: 284: void IOPINS_vPortCSet(uint8_t u8PinMask);IOPINS.c: 285: {;IOPINS.c: 286:
+      +                               LATC += u8PinMask;
+  1411   001AE8  5001               	movf	IOPINS_vPortCSet@u8PinMask^(0+1280),w,c	;volatile
+  1412   001AEA  0101               	movlb	1	; () banked
+  1413   001AEC  2742               	addwf	66,f,b	;volatile
+  1414   001AEE                     
+  1415                           ; BSR set to: 1
+  1416   001AEE  0012               	return		;funcret
+  1417   001AF0                     __end_of_IOPINS_vPortCSet:
+  1418                           	callstack 0
+  1419                           
+  1420 ;; *************** function _IOPINS_vPortCClear *****************
+  1421 ;; Defined at:
+  1422 ;;		line 289 in file "IOPINS.c"
+  1423 ;; Parameters:    Size  Location     Type
+  1424 ;;  u8PinMask       1    wreg     unsigned char 
+  1425 ;; Auto vars:     Size  Location     Type
+  1426 ;;  u8PinMask       1    0[COMRAM] unsigned char 
+  1427 ;; Return value:  Size  Location     Type
+  1428 ;;                  1    wreg      void 
+  1429 ;; Registers used:
+  1430 ;;		wreg, status,2, status,0
+  1431 ;; Tracked objects:
+  1432 ;;		On entry : 0/0
+  1433 ;;		On exit  : 0/0
+  1434 ;;		Unchanged: 0/0
+  1435 ;; Data sizes:     COMRAM   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15  BANK1
+      +6  BANK17  BANK18  BANK19  BANK20
+  1436 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1437 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1438 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1439 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1440 ;;Total ram usage:        1 bytes
+  1441 ;; Hardware stack levels used: 1
+  1442 ;; This function calls:
+  1443 ;;		Nothing
+  1444 ;; This function is called by:
+  1445 ;;		_main
+  1446 ;; This function uses a non-reentrant model
+  1447 ;;
+  1448                           
+  1449                           	psect	text6
+  1450   001AB8                     __ptext6:
+  1451                           	callstack 0
+  1452   001AB8                     _IOPINS_vPortCClear:
+  1453                           	callstack 126
+  1454                           
+  1455                           ; BSR set to: 1
+  1456                           ;incstack = 0
+  1457                           ;IOPINS_vPortCClear@u8PinMask stored from wreg
+  1458   001AB8  6E01               	movwf	IOPINS_vPortCClear@u8PinMask^(0+1280),c
+  1459   001ABA                     
+  1460                           ;IOPINS.c: 289: void IOPINS_vPortCClear(uint8_t u8PinMask);IOPINS.c: 290: {;IOPINS.c: 29
+      +                          1:     LATC &= ~u8PinMask;
+  1461   001ABA  5001               	movf	IOPINS_vPortCClear@u8PinMask^(0+1280),w,c	;volatile
+  1462   001ABC  0AFF               	xorlw	255
+  1463   001ABE  0101               	movlb	1	; () banked
+  1464   001AC0  1742               	andwf	66,f,b	;volatile
+  1465   001AC2                     
+  1466                           ; BSR set to: 1
+  1467   001AC2  0012               	return		;funcret
+  1468   001AC4                     __end_of_IOPINS_vPortCClear:
+  1469                           	callstack 0
+  1470                           
+  1471 ;; *************** function _IOPINS_vPortBSet *****************
+  1472 ;; Defined at:
+  1473 ;;		line 260 in file "IOPINS.c"
+  1474 ;; Parameters:    Size  Location     Type
+  1475 ;;  u8PinMask       1    wreg     unsigned char 
+  1476 ;; Auto vars:     Size  Location     Type
+  1477 ;;  u8PinMask       1    0[COMRAM] unsigned char 
+  1478 ;; Return value:  Size  Location     Type
+  1479 ;;                  1    wreg      void 
+  1480 ;; Registers used:
+  1481 ;;		wreg, status,2, status,0
+  1482 ;; Tracked objects:
+  1483 ;;		On entry : 0/0
+  1484 ;;		On exit  : 0/0
+  1485 ;;		Unchanged: 0/0
+  1486 ;; Data sizes:     COMRAM   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15  BANK1
+      +6  BANK17  BANK18  BANK19  BANK20
+  1487 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1488 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1489 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1490 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1491 ;;Total ram usage:        1 bytes
+  1492 ;; Hardware stack levels used: 1
+  1493 ;; This function calls:
+  1494 ;;		Nothing
+  1495 ;; This function is called by:
+  1496 ;;		_main
+  1497 ;; This function uses a non-reentrant model
+  1498 ;;
+  1499                           
+  1500                           	psect	text7
+  1501   001AF0                     __ptext7:
+  1502                           	callstack 0
+  1503   001AF0                     _IOPINS_vPortBSet:
+  1504                           	callstack 126
+  1505                           
+  1506                           ; BSR set to: 1
+  1507                           ;incstack = 0
+  1508                           ;IOPINS_vPortBSet@u8PinMask stored from wreg
+  1509   001AF0  6E01               	movwf	IOPINS_vPortBSet@u8PinMask^(0+1280),c
+  1510   001AF2                     
+  1511                           ;IOPINS.c: 260: void IOPINS_vPortBSet(uint8_t u8PinMask);IOPINS.c: 261: {;IOPINS.c: 262:
+      +                               LATB += u8PinMask;
+  1512   001AF2  5001               	movf	IOPINS_vPortBSet@u8PinMask^(0+1280),w,c	;volatile
+  1513   001AF4  0101               	movlb	1	; () banked
+  1514   001AF6  2741               	addwf	65,f,b	;volatile
+  1515   001AF8                     
+  1516                           ; BSR set to: 1
+  1517   001AF8  0012               	return		;funcret
+  1518   001AFA                     __end_of_IOPINS_vPortBSet:
+  1519                           	callstack 0
+  1520                           
+  1521 ;; *************** function _IOPINS_vPortBClear *****************
+  1522 ;; Defined at:
+  1523 ;;		line 265 in file "IOPINS.c"
+  1524 ;; Parameters:    Size  Location     Type
+  1525 ;;  u8PinMask       1    wreg     unsigned char 
+  1526 ;; Auto vars:     Size  Location     Type
+  1527 ;;  u8PinMask       1    0[COMRAM] unsigned char 
+  1528 ;; Return value:  Size  Location     Type
+  1529 ;;                  1    wreg      void 
+  1530 ;; Registers used:
+  1531 ;;		wreg, status,2, status,0
+  1532 ;; Tracked objects:
+  1533 ;;		On entry : 0/0
+  1534 ;;		On exit  : 0/0
+  1535 ;;		Unchanged: 0/0
+  1536 ;; Data sizes:     COMRAM   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15  BANK1
+      +6  BANK17  BANK18  BANK19  BANK20
+  1537 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1538 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1539 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1540 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1541 ;;Total ram usage:        1 bytes
+  1542 ;; Hardware stack levels used: 1
+  1543 ;; This function calls:
+  1544 ;;		Nothing
+  1545 ;; This function is called by:
+  1546 ;;		_main
+  1547 ;; This function uses a non-reentrant model
+  1548 ;;
+  1549                           
+  1550                           	psect	text8
+  1551   001AC4                     __ptext8:
+  1552                           	callstack 0
+  1553   001AC4                     _IOPINS_vPortBClear:
+  1554                           	callstack 126
+  1555                           
+  1556                           ; BSR set to: 1
+  1557                           ;incstack = 0
+  1558                           ;IOPINS_vPortBClear@u8PinMask stored from wreg
+  1559   001AC4  6E01               	movwf	IOPINS_vPortBClear@u8PinMask^(0+1280),c
+  1560   001AC6                     
+  1561                           ;IOPINS.c: 265: void IOPINS_vPortBClear(uint8_t u8PinMask);IOPINS.c: 266: {;IOPINS.c: 26
+      +                          7:     LATB &= ~u8PinMask;
+  1562   001AC6  5001               	movf	IOPINS_vPortBClear@u8PinMask^(0+1280),w,c	;volatile
+  1563   001AC8  0AFF               	xorlw	255
+  1564   001ACA  0101               	movlb	1	; () banked
+  1565   001ACC  1741               	andwf	65,f,b	;volatile
+  1566   001ACE                     
+  1567                           ; BSR set to: 1
+  1568   001ACE  0012               	return		;funcret
+  1569   001AD0                     __end_of_IOPINS_vPortBClear:
+  1570                           	callstack 0
+  1571                           
+  1572 ;; *************** function _IOPINS_vPortASet *****************
+  1573 ;; Defined at:
+  1574 ;;		line 223 in file "IOPINS.c"
+  1575 ;; Parameters:    Size  Location     Type
+  1576 ;;  u8PinMask       1    wreg     unsigned char 
+  1577 ;; Auto vars:     Size  Location     Type
+  1578 ;;  u8PinMask       1    0[COMRAM] unsigned char 
+  1579 ;; Return value:  Size  Location     Type
+  1580 ;;                  1    wreg      void 
+  1581 ;; Registers used:
+  1582 ;;		wreg, status,2, status,0
+  1583 ;; Tracked objects:
+  1584 ;;		On entry : 0/0
+  1585 ;;		On exit  : 0/0
+  1586 ;;		Unchanged: 0/0
+  1587 ;; Data sizes:     COMRAM   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15  BANK1
+      +6  BANK17  BANK18  BANK19  BANK20
+  1588 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1589 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1590 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1591 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1592 ;;Total ram usage:        1 bytes
+  1593 ;; Hardware stack levels used: 1
+  1594 ;; This function calls:
+  1595 ;;		Nothing
+  1596 ;; This function is called by:
+  1597 ;;		_main
+  1598 ;; This function uses a non-reentrant model
+  1599 ;;
+  1600                           
+  1601                           	psect	text9
+  1602   001AFA                     __ptext9:
+  1603                           	callstack 0
+  1604   001AFA                     _IOPINS_vPortASet:
+  1605                           	callstack 126
+  1606                           
+  1607                           ; BSR set to: 1
+  1608                           ;incstack = 0
+  1609                           ;IOPINS_vPortASet@u8PinMask stored from wreg
+  1610   001AFA  6E01               	movwf	IOPINS_vPortASet@u8PinMask^(0+1280),c
+  1611   001AFC                     
+  1612                           ;IOPINS.c: 223: void IOPINS_vPortASet(uint8_t u8PinMask);IOPINS.c: 224: {;IOPINS.c: 225:
+      +                               LATA += u8PinMask;
+  1613   001AFC  5001               	movf	IOPINS_vPortASet@u8PinMask^(0+1280),w,c	;volatile
+  1614   001AFE  0101               	movlb	1	; () banked
+  1615   001B00  2740               	addwf	64,f,b	;volatile
+  1616   001B02                     
+  1617                           ; BSR set to: 1
+  1618   001B02  0012               	return		;funcret
+  1619   001B04                     __end_of_IOPINS_vPortASet:
+  1620                           	callstack 0
+  1621                           
+  1622 ;; *************** function _IOPINS_vPortAClear *****************
+  1623 ;; Defined at:
+  1624 ;;		line 228 in file "IOPINS.c"
+  1625 ;; Parameters:    Size  Location     Type
+  1626 ;;  u8PinMask       1    wreg     unsigned char 
+  1627 ;; Auto vars:     Size  Location     Type
+  1628 ;;  u8PinMask       1    0[COMRAM] unsigned char 
+  1629 ;; Return value:  Size  Location     Type
+  1630 ;;                  1    wreg      void 
+  1631 ;; Registers used:
+  1632 ;;		wreg, status,2, status,0
+  1633 ;; Tracked objects:
+  1634 ;;		On entry : 0/0
+  1635 ;;		On exit  : 0/0
+  1636 ;;		Unchanged: 0/0
+  1637 ;; Data sizes:     COMRAM   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15  BANK1
+      +6  BANK17  BANK18  BANK19  BANK20
+  1638 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1639 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1640 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1641 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1642 ;;Total ram usage:        1 bytes
+  1643 ;; Hardware stack levels used: 1
+  1644 ;; This function calls:
+  1645 ;;		Nothing
+  1646 ;; This function is called by:
+  1647 ;;		_main
+  1648 ;; This function uses a non-reentrant model
+  1649 ;;
+  1650                           
+  1651                           	psect	text10
+  1652   001AD0                     __ptext10:
+  1653                           	callstack 0
+  1654   001AD0                     _IOPINS_vPortAClear:
+  1655                           	callstack 126
+  1656                           
+  1657                           ; BSR set to: 1
+  1658                           ;incstack = 0
+  1659                           ;IOPINS_vPortAClear@u8PinMask stored from wreg
+  1660   001AD0  6E01               	movwf	IOPINS_vPortAClear@u8PinMask^(0+1280),c
+  1661   001AD2                     
+  1662                           ;IOPINS.c: 228: void IOPINS_vPortAClear(uint8_t u8PinMask);IOPINS.c: 229: {;IOPINS.c: 23
+      +                          0:     LATA &= ~u8PinMask;
+  1663   001AD2  5001               	movf	IOPINS_vPortAClear@u8PinMask^(0+1280),w,c	;volatile
+  1664   001AD4  0AFF               	xorlw	255
+  1665   001AD6  0101               	movlb	1	; () banked
+  1666   001AD8  1740               	andwf	64,f,b	;volatile
+  1667   001ADA                     
+  1668                           ; BSR set to: 1
+  1669   001ADA  0012               	return		;funcret
+  1670   001ADC                     __end_of_IOPINS_vPortAClear:
+  1671                           	callstack 0
+  1672                           
+  1673 ;; *************** function _IOPINS_vMaskGenerator *****************
+  1674 ;; Defined at:
+  1675 ;;		line 58 in file "IOPINS.c"
+  1676 ;; Parameters:    Size  Location     Type
+  1677 ;;  u8PinList       2    0[COMRAM] PTR unsigned char 
+  1678 ;;		 -> main@u8PinListPortD(4), main@u8PinListPortB(2), main@u8PinListPortA(2), main@u8PinList2(1), 
+  1679 ;;		 -> main@u8PinList1(1), 
+  1680 ;;  u8Pins          1    2[COMRAM] unsigned char 
+  1681 ;;  u8PinMask       2    3[COMRAM] PTR unsigned char 
+  1682 ;;		 -> main@u8MaskPortD(1), main@u8MaskPortB(1), main@u8MaskPortA(1), main@u8Mask2(1), 
+  1683 ;;		 -> main@u8Mask1(1), 
+  1684 ;; Auto vars:     Size  Location     Type
+  1685 ;;  idx             1    8[COMRAM] volatile unsigned char 
+  1686 ;;  u8TempMask      1    7[COMRAM] volatile unsigned char 
+  1687 ;; Return value:  Size  Location     Type
+  1688 ;;                  1    wreg      void 
+  1689 ;; Registers used:
+  1690 ;;		wreg, fsr2l, fsr2h, status,2, status,0
+  1691 ;; Tracked objects:
+  1692 ;;		On entry : 0/0
+  1693 ;;		On exit  : 0/0
+  1694 ;;		Unchanged: 0/0
+  1695 ;; Data sizes:     COMRAM   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15  BANK1
+      +6  BANK17  BANK18  BANK19  BANK20
+  1696 ;;      Params:         5       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1697 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1698 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1699 ;;      Totals:         9       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1700 ;;Total ram usage:        9 bytes
+  1701 ;; Hardware stack levels used: 1
+  1702 ;; This function calls:
+  1703 ;;		Nothing
+  1704 ;; This function is called by:
+  1705 ;;		_main
+  1706 ;; This function uses a non-reentrant model
+  1707 ;;
+  1708                           
+  1709                           	psect	text11
+  1710   0019E2                     __ptext11:
+  1711                           	callstack 0
+  1712   0019E2                     _IOPINS_vMaskGenerator:
+  1713                           	callstack 126
+  1714   0019E2                     
+  1715                           ;IOPINS.c: 58: void IOPINS_vMaskGenerator(uint8_t u8PinList[], uint8_t u8Pins, uint8_t *
+      +                          u8PinMask);IOPINS.c: 59: {;IOPINS.c: 60:     volatile uint8_t idx;;IOPINS.c: 61:     vol
+      +                          atile uint8_t u8TempMask = 0x00;
+  1716   0019E2  0E00               	movlw	0
+  1717   0019E4  6E08               	movwf	IOPINS_vMaskGenerator@u8TempMask^(0+1280),c	;volatile
+  1718                           
+  1719                           ;IOPINS.c: 62:     for( idx = 0; idx < u8Pins; idx++)
+  1720   0019E6  0E00               	movlw	0
+  1721   0019E8  6E09               	movwf	IOPINS_vMaskGenerator@idx^(0+1280),c	;volatile
+  1722   0019EA  EF0C  F00D         	goto	l1264
+  1723   0019EE                     l1260:
+  1724                           
+  1725                           ;IOPINS.c: 63:     {;IOPINS.c: 64:         u8TempMask |= ( 1 << u8PinList[idx] );
+  1726   0019EE  5009               	movf	IOPINS_vMaskGenerator@idx^(0+1280),w,c	;volatile
+  1727   0019F0  2401               	addwf	IOPINS_vMaskGenerator@u8PinList^(0+1280),w,c
+  1728   0019F2  6ED9               	movwf	fsr2l,c
+  1729   0019F4  0E00               	movlw	0
+  1730   0019F6  2002               	addwfc	(IOPINS_vMaskGenerator@u8PinList+1)^(0+1280),w,c
+  1731   0019F8  6EDA               	movwf	fsr2h,c
+  1732   0019FA  50DF               	movf	indf2,w,c
+  1733   0019FC  6E06               	movwf	??_IOPINS_vMaskGenerator^(0+1280),c
+  1734   0019FE  0E01               	movlw	1
+  1735   001A00  6E07               	movwf	(??_IOPINS_vMaskGenerator+1)^(0+1280),c
+  1736   001A02  2A06               	incf	??_IOPINS_vMaskGenerator^(0+1280),f,c
+  1737   001A04  EF06  F00D         	goto	u294
+  1738   001A08                     u295:
+  1739   001A08  90D8               	bcf	status,0,c
+  1740   001A0A  3607               	rlcf	(??_IOPINS_vMaskGenerator+1)^(0+1280),f,c
+  1741   001A0C                     u294:
+  1742   001A0C  2E06               	decfsz	??_IOPINS_vMaskGenerator^(0+1280),f,c
+  1743   001A0E  EF04  F00D         	goto	u295
+  1744   001A12  5007               	movf	(??_IOPINS_vMaskGenerator+1)^(0+1280),w,c
+  1745   001A14  1208               	iorwf	IOPINS_vMaskGenerator@u8TempMask^(0+1280),f,c	;volatile
+  1746   001A16                     
+  1747                           ;IOPINS.c: 65:     }
+  1748   001A16  2A09               	incf	IOPINS_vMaskGenerator@idx^(0+1280),f,c	;volatile
+  1749   001A18                     l1264:
+  1750   001A18  5003               	movf	IOPINS_vMaskGenerator@u8Pins^(0+1280),w,c
+  1751   001A1A  5C09               	subwf	IOPINS_vMaskGenerator@idx^(0+1280),w,c	;volatile
+  1752   001A1C  A0D8               	btfss	status,0,c
+  1753   001A1E  EF13  F00D         	goto	u301
+  1754   001A22  EF15  F00D         	goto	u300
+  1755   001A26                     u301:
+  1756   001A26  EFF7  F00C         	goto	l1260
+  1757   001A2A                     u300:
+  1758   001A2A                     
+  1759                           ;IOPINS.c: 66:     *u8PinMask = u8TempMask;
+  1760   001A2A  C504  F4D9         	movff	IOPINS_vMaskGenerator@u8PinMask,fsr2l
+  1761   001A2E  C505  F4DA         	movff	IOPINS_vMaskGenerator@u8PinMask+1,fsr2h
+  1762   001A32  C508  F4DF         	movff	IOPINS_vMaskGenerator@u8TempMask,indf2	;volatile
+  1763   001A36  0012               	return		;funcret
+  1764   001A38                     __end_of_IOPINS_vMaskGenerator:
+  1765                           	callstack 0
+  1766                           
+  1767 ;; *************** function _IOPINS_bPinAInterruptRead *****************
+  1768 ;; Defined at:
+  1769 ;;		line 251 in file "IOPINS.c"
+  1770 ;; Parameters:    Size  Location     Type
+  1771 ;;  u8PinMask       1    wreg     unsigned char 
+  1772 ;; Auto vars:     Size  Location     Type
+  1773 ;;  u8PinMask       1    1[COMRAM] unsigned char 
+  1774 ;; Return value:  Size  Location     Type
+  1775 ;;                  1    wreg      _Bool 
+  1776 ;; Registers used:
+  1777 ;;		wreg, status,2, status,0
+  1778 ;; Tracked objects:
+  1779 ;;		On entry : 0/0
+  1780 ;;		On exit  : 0/0
+  1781 ;;		Unchanged: 0/0
+  1782 ;; Data sizes:     COMRAM   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15  BANK1
+      +6  BANK17  BANK18  BANK19  BANK20
+  1783 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1784 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1785 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1786 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1787 ;;Total ram usage:        2 bytes
+  1788 ;; Hardware stack levels used: 1
+  1789 ;; This function calls:
+  1790 ;;		Nothing
+  1791 ;; This function is called by:
+  1792 ;;		_main
+  1793 ;; This function uses a non-reentrant model
+  1794 ;;
+  1795                           
+  1796                           	psect	text12
+  1797   001A38                     __ptext12:
+  1798                           	callstack 0
+  1799   001A38                     _IOPINS_bPinAInterruptRead:
+  1800                           	callstack 126
+  1801                           
+  1802                           ;incstack = 0
+  1803                           ;IOPINS_bPinAInterruptRead@u8PinMask stored from wreg
+  1804   001A38  6E02               	movwf	IOPINS_bPinAInterruptRead@u8PinMask^(0+1280),c
+  1805   001A3A                     
+  1806                           ;IOPINS.c: 251: _Bool IOPINS_bPinAInterruptRead(uint8_t u8PinMask);IOPINS.c: 252: {;IOPI
+      +                          NS.c: 253:     if( ( IOCAF && u8PinMask ) == u8PinMask )
+  1807   001A3A  0E00               	movlw	0
+  1808   001A3C  6E01               	movwf	_IOPINS_bPinAInterruptRead$173^(0+1280),c
+  1809   001A3E  0104               	movlb	4	; () banked
+  1810   001A40  5107               	movf	7,w,b	;volatile
+  1811   001A42  B4D8               	btfsc	status,2,c
+  1812   001A44  EF26  F00D         	goto	u501
+  1813   001A48  EF28  F00D         	goto	u500
+  1814   001A4C                     u501:
+  1815   001A4C  EF32  F00D         	goto	l1404
+  1816   001A50                     u500:
+  1817   001A50                     
+  1818                           ; BSR set to: 4
+  1819   001A50  5002               	movf	IOPINS_bPinAInterruptRead@u8PinMask^(0+1280),w,c
+  1820   001A52  B4D8               	btfsc	status,2,c
+  1821   001A54  EF2E  F00D         	goto	u511
+  1822   001A58  EF30  F00D         	goto	u510
+  1823   001A5C                     u511:
+  1824   001A5C  EF32  F00D         	goto	l1404
+  1825   001A60                     u510:
+  1826   001A60                     
+  1827                           ; BSR set to: 4
+  1828   001A60  0E01               	movlw	1
+  1829   001A62  6E01               	movwf	_IOPINS_bPinAInterruptRead$173^(0+1280),c
+  1830   001A64                     l1404:
+  1831                           
+  1832                           ; BSR set to: 4
+  1833   001A64  5002               	movf	IOPINS_bPinAInterruptRead@u8PinMask^(0+1280),w,c
+  1834   001A66  1801               	xorwf	_IOPINS_bPinAInterruptRead$173^(0+1280),w,c
+  1835   001A68  A4D8               	btfss	status,2,c
+  1836   001A6A  EF39  F00D         	goto	u521
+  1837   001A6E  EF3B  F00D         	goto	u520
+  1838   001A72                     u521:
+  1839   001A72  EF3E  F00D         	goto	l1412
+  1840   001A76                     u520:
+  1841   001A76                     
+  1842                           ; BSR set to: 4
+  1843                           ;IOPINS.c: 254:         return 1;
+  1844   001A76  0E01               	movlw	1
+  1845   001A78  EF3F  F00D         	goto	l203
+  1846   001A7C                     l1412:
+  1847                           
+  1848                           ; BSR set to: 4
+  1849                           ;IOPINS.c: 256:         return 0;
+  1850   001A7C  0E00               	movlw	0
+  1851   001A7E                     l203:
+  1852                           
+  1853                           ; BSR set to: 4
+  1854   001A7E  0012               	return		;funcret
+  1855   001A80                     __end_of_IOPINS_bPinAInterruptRead:
+  1856                           	callstack 0
+  1857                           
+  1858                           	psect	smallconst
+  1859   001500                     __psmallconst:
+  1860                           	callstack 0
+  1861   001500  00                 	db	0
+  1862   001501  00                 	db	0	; dummy byte at the end
+  1863   000000                     
+  1864                           	psect	rparam
+  1865   000000                     
+  1866                           	psect	config
+  1867                           
+  1868                           ;Config register CONFIG1 @ 0x300000
+  1869                           ;	External Oscillator Selection
+  1870                           ;	FEXTOSC = OFF, Oscillator not enabled
+  1871                           ;	Reset Oscillator Selection
+  1872                           ;	RSTOSC = HFINTOSC_64MHZ, HFINTOSC with HFFRQ = 64 MHz and CDIV = 1:1
+  1873   300000                     	org	3145728
+  1874   300000  8C                 	db	140
+  1875                           
+  1876                           ;Config register CONFIG2 @ 0x300001
+  1877                           ;	Clock out Enable bit
+  1878                           ;	CLKOUTEN = OFF, CLKOUT function is disabled
+  1879                           ;	PRLOCKED One-Way Set Enable bit
+  1880                           ;	PR1WAY = ON, PRLOCKED bit can be cleared and set only once
+  1881                           ;	Boot Block enable bit
+  1882                           ;	BBEN = OFF, Boot block disabled
+  1883                           ;	Clock Switch Enable bit
+  1884                           ;	CSWEN = ON, Writing to NOSC and NDIV is allowed
+  1885                           ;	Fail-Safe Clock Monitor Enable bit
+  1886                           ;	FCMEN = ON, Fail-Safe Clock Monitor enabled
+  1887                           ;	Fail-Safe Clock Monitor - Primary XTAL Enable bit
+  1888                           ;	FCMENP = ON, Fail-Safe Clock Monitor enabled; timer will flag FSCMP bit and OSFIF inte
+      +                          rrupt on EXTOSC failure.
+  1889                           ;	Fail-Safe Clock Monitor - Secondary XTAL Enable bit
+  1890                           ;	FCMENS = ON, Fail-Safe Clock Monitor enabled; timer will flag FSCMP bit and OSFIF inte
+      +                          rrupt on SOSC failure.
+  1891   300001                     	org	3145729
+  1892   300001  FF                 	db	255
+  1893                           
+  1894                           ;Config register CONFIG3 @ 0x300002
+  1895                           ;	MCLR Enable bit
+  1896                           ;	MCLRE = EXTMCLR, If LVP = 0, MCLR pin is MCLR; If LVP = 1, RE3 pin function is MCLR
+  1897                           ;	Power-up timer selection bits
+  1898                           ;	PWRTS = PWRT_16, PWRT set at 16ms
+  1899                           ;	Multi-vector enable bit
+  1900                           ;	MVECEN = ON, Multi-vector enabled, Vector table used for interrupts
+  1901                           ;	IVTLOCK bit One-way set enable bit
+  1902                           ;	IVT1WAY = ON, IVTLOCKED bit can be cleared and set only once
+  1903                           ;	Low Power BOR Enable bit
+  1904                           ;	LPBOREN = OFF, Low-Power BOR disabled
+  1905                           ;	Brown-out Reset Enable bits
+  1906                           ;	BOREN = SBORDIS, Brown-out Reset enabled , SBOREN bit is ignored
+  1907   300002                     	org	3145730
+  1908   300002  FB                 	db	251
+  1909                           
+  1910                           ;Config register CONFIG4 @ 0x300003
+  1911                           ;	Brown-out Reset Voltage Selection bits
+  1912                           ;	BORV = VBOR_1P9, Brown-out Reset Voltage (VBOR) set to 1.9V
+  1913                           ;	ZCD Disable bit
+  1914                           ;	ZCD = OFF, ZCD module is disabled. ZCD can be enabled by setting the ZCDSEN bit of ZCD
+      +                          CON
+  1915                           ;	PPSLOCK bit One-Way Set Enable bit
+  1916                           ;	PPS1WAY = ON, PPSLOCKED bit can be cleared and set only once; PPS registers remain loc
+      +                          ked after one clear/set cycle
+  1917                           ;	Stack Full/Underflow Reset Enable bit
+  1918                           ;	STVREN = ON, Stack full/underflow will cause Reset
+  1919                           ;	Low Voltage Programming Enable bit
+  1920                           ;	LVP = ON, Low voltage programming enabled. MCLR/VPP pin function is MCLR. MCLRE config
+      +                          uration bit is ignored
+  1921                           ;	Background Debugger
+  1922                           ;	DEBUG = OFF, Background Debugger disabled
+  1923                           ;	Extended Instruction Set Enable bit
+  1924                           ;	XINST = OFF, Extended Instruction Set and Indexed Addressing Mode disabled
+  1925   300003                     	org	3145731
+  1926   300003  FF                 	db	255
+  1927                           
+  1928                           ;Config register CONFIG5 @ 0x300004
+  1929                           ;	WDT Period selection bits
+  1930                           ;	WDTCPS = WDTCPS_31, Divider ratio 1:65536; software control of WDTPS
+  1931                           ;	WDT operating mode
+  1932                           ;	WDTE = OFF, WDT Disabled; SWDTEN is ignored
+  1933   300004                     	org	3145732
+  1934   300004  9F                 	db	159
+  1935                           
+  1936                           ;Config register CONFIG6 @ 0x300005
+  1937                           ;	WDT Window Select bits
+  1938                           ;	WDTCWS = WDTCWS_7, window always open (100%); software control; keyed access not requi
+      +                          red
+  1939                           ;	WDT input clock selector
+  1940                           ;	WDTCCS = SC, Software Control
+  1941   300005                     	org	3145733
+  1942   300005  FF                 	db	255
+  1943                           
+  1944                           ;Config register CONFIG7 @ 0x300006
+  1945                           ;	Boot Block Size Selection bits
+  1946                           ;	BBSIZE = BBSIZE_256, Boot Block size is 256 words
+  1947   300006                     	org	3145734
+  1948   300006  01                 	db	1
+  1949                           
+  1950                           ;Config register CONFIG8 @ 0x300007
+  1951                           ;	SAF Block Size Selection bits
+  1952                           ;	SAFSZ = SAFSZ_NONE, NONE
+  1953   300007                     	org	3145735
+  1954   300007  FF                 	db	255
+  1955                           
+  1956                           ;Config register CONFIG9 @ 0x300008
+  1957                           ;	Boot Block Write Protection bit
+  1958                           ;	WRTB = OFF, Boot Block not Write protected
+  1959                           ;	Configuration Register Write Protection bit
+  1960                           ;	WRTC = OFF, Configuration registers not Write protected
+  1961                           ;	Data EEPROM Write Protection bit
+  1962                           ;	WRTD = OFF, Data EEPROM not Write protected
+  1963                           ;	SAF Write protection bit
+  1964                           ;	WRTSAF = OFF, SAF not Write Protected
+  1965                           ;	Application Block write protection bit
+  1966                           ;	WRTAPP = OFF, Application Block not write protected
+  1967   300008                     	org	3145736
+  1968   300008  FF                 	db	255
+  1969                           
+  1970                           ;Config register CONFIG10 @ 0x300009
+  1971                           ;	Data EEPROM Code Protection bit
+  1972                           ;	CPD = OFF, Data EEPROM code protection disabled
+  1973   300009                     	org	3145737
+  1974   300009  FF                 	db	255
+  1975                           
+  1976                           ;Config register CONFIG11 @ 0x30000A
+  1977                           ;	PFM Code Protection bit
+  1978                           ;	CP = OFF, PFM code protection disabled
+  1979   30000A                     	org	3145738
+  1980   30000A  FF                 	db	255
+  1981                           tosu	equ	0x4FF
+  1982                           tosh	equ	0x4FE
+  1983                           tosl	equ	0x4FD
+  1984                           stkptr	equ	0x4FC
+  1985                           pclatu	equ	0x4FB
+  1986                           pclath	equ	0x4FA
+  1987                           pcl	equ	0x4F9
+  1988                           tblptru	equ	0x4F8
+  1989                           tblptrh	equ	0x4F7
+  1990                           tblptrl	equ	0x4F6
+  1991                           tablat	equ	0x4F5
+  1992                           prodh	equ	0x4F4
+  1993                           prodl	equ	0x4F3
+  1994                           indf0	equ	0x4EF
+  1995                           postinc0	equ	0x4EE
+  1996                           postdec0	equ	0x4ED
+  1997                           preinc0	equ	0x4EC
+  1998                           plusw0	equ	0x4EB
+  1999                           fsr0h	equ	0x4EA
+  2000                           fsr0l	equ	0x4E9
+  2001                           wreg	equ	0x4E8
+  2002                           indf1	equ	0x4E7
+  2003                           postinc1	equ	0x4E6
+  2004                           postdec1	equ	0x4E5
+  2005                           preinc1	equ	0x4E4
+  2006                           plusw1	equ	0x4E3
+  2007                           fsr1h	equ	0x4E2
+  2008                           fsr1l	equ	0x4E1
+  2009                           bsr	equ	0x4E0
+  2010                           indf2	equ	0x4DF
+  2011                           postinc2	equ	0x4DE
+  2012                           postdec2	equ	0x4DD
+  2013                           preinc2	equ	0x4DC
+  2014                           plusw2	equ	0x4DB
+  2015                           fsr2h	equ	0x4DA
+  2016                           fsr2l	equ	0x4D9
+  2017                           status	equ	0x4D8
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        9
+    BSS         1
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           95     27      37
+    BANK5           160      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+    BANK8           256      0       0
+    BANK9           256      0       0
+    BANK10          256      0       0
+    BANK11          256      0       0
+    BANK12          256      0       0
+    BANK13          256      0       0
+    BANK14          256      0       0
+    BANK15          256      0       0
+    BANK16          256      0       0
+    BANK17          256      0       0
+    BANK18          256      0       0
+    BANK19          256      0       0
+    BANK20          256      0       0
+
+Pointer List with Targets:
+
+    IOPINS_vMaskGenerator@u8PinList	PTR unsigned char  size(2) Largest target is 4
+		 -> main@u8PinList1(COMRAM[1]), main@u8PinList2(COMRAM[1]), main@u8PinListPortA(COMRAM[2]), main@u8PinListPortB(COMRAM[2]), 
+		 -> main@u8PinListPortD(COMRAM[4]), 
+
+    IOPINS_vMaskGenerator@u8PinMask	PTR unsigned char  size(2) Largest target is 1
+		 -> main@u8Mask1(COMRAM[1]), main@u8Mask2(COMRAM[1]), main@u8MaskPortA(COMRAM[1]), main@u8MaskPortB(COMRAM[1]), 
+		 -> main@u8MaskPortD(COMRAM[1]), 
+
+
+Critical Paths under _main in COMRAM
+
+    _main->_IOPINS_vMaskGenerator
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Critical Paths under _main in BANK8
+
+    None.
+
+Critical Paths under _main in BANK9
+
+    None.
+
+Critical Paths under _main in BANK10
+
+    None.
+
+Critical Paths under _main in BANK11
+
+    None.
+
+Critical Paths under _main in BANK12
+
+    None.
+
+Critical Paths under _main in BANK13
+
+    None.
+
+Critical Paths under _main in BANK14
+
+    None.
+
+Critical Paths under _main in BANK15
+
+    None.
+
+Critical Paths under _main in BANK16
+
+    None.
+
+Critical Paths under _main in BANK17
+
+    None.
+
+Critical Paths under _main in BANK18
+
+    None.
+
+Critical Paths under _main in BANK19
+
+    None.
+
+Critical Paths under _main in BANK20
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                18    18      0    5170
+                                              9 COMRAM    18    18      0
+          _IOPINS_bPinAInterruptRead
+              _IOPINS_vMaskGenerator
+                 _IOPINS_vPortAClear
+                   _IOPINS_vPortASet
+                 _IOPINS_vPortBClear
+                   _IOPINS_vPortBSet
+                 _IOPINS_vPortCClear
+                   _IOPINS_vPortCSet
+                 _IOPINS_vPortConfig
+                 _IOPINS_vPortDClear
+                   _IOPINS_vPortDSet
+        _IOPINS_vPortInterruptConfig
+ ---------------------------------------------------------------------------------
+ (1) _IOPINS_vPortInterruptConfig                          3     1      2     284
+                                              0 COMRAM     3     1      2
+ ---------------------------------------------------------------------------------
+ (1) _IOPINS_vPortDSet                                     1     1      0      15
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _IOPINS_vPortDClear                                   1     1      0      15
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _IOPINS_vPortConfig                                   5     1      4    2730
+                                              0 COMRAM     5     1      4
+ ---------------------------------------------------------------------------------
+ (1) _IOPINS_vPortCSet                                     1     1      0      15
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _IOPINS_vPortCClear                                   1     1      0      15
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _IOPINS_vPortBSet                                     1     1      0      15
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _IOPINS_vPortBClear                                   1     1      0      15
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _IOPINS_vPortASet                                     1     1      0      15
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _IOPINS_vPortAClear                                   1     1      0      15
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _IOPINS_vMaskGenerator                                9     4      5    1276
+                                              0 COMRAM     9     4      5
+ ---------------------------------------------------------------------------------
+ (1) _IOPINS_bPinAInterruptRead                            2     2      0      68
+                                              0 COMRAM     2     2      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _IOPINS_bPinAInterruptRead
+   _IOPINS_vMaskGenerator
+   _IOPINS_vPortAClear
+   _IOPINS_vPortASet
+   _IOPINS_vPortBClear
+   _IOPINS_vPortBSet
+   _IOPINS_vPortCClear
+   _IOPINS_vPortCSet
+   _IOPINS_vPortConfig
+   _IOPINS_vPortDClear
+   _IOPINS_vPortDSet
+   _IOPINS_vPortInterruptConfig
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             FFF      0       0      37        0.0%
+BITBIGSFRhlh       2AB      0       0      50        0.0%
+BITBIGSFRll        140      0       0      53        0.0%
+EEDATA             100      0       0       0        0.0%
+BITBIGSFR_1        100      0       0      36        0.0%
+BITBANK20          100      0       0      34        0.0%
+BANK20             100      0       0      35        0.0%
+BITBANK19          100      0       0      32        0.0%
+BANK19             100      0       0      33        0.0%
+BITBANK18          100      0       0      30        0.0%
+BANK18             100      0       0      31        0.0%
+BITBANK17          100      0       0      28        0.0%
+BANK17             100      0       0      29        0.0%
+BITBANK16          100      0       0      26        0.0%
+BANK16             100      0       0      27        0.0%
+BITBANK15          100      0       0      24        0.0%
+BANK15             100      0       0      25        0.0%
+BITBANK14          100      0       0      22        0.0%
+BANK14             100      0       0      23        0.0%
+BITBANK13          100      0       0      20        0.0%
+BANK13             100      0       0      21        0.0%
+BITBANK12          100      0       0      18        0.0%
+BANK12             100      0       0      19        0.0%
+BITBANK11          100      0       0      16        0.0%
+BANK11             100      0       0      17        0.0%
+BITBANK10          100      0       0      14        0.0%
+BANK10             100      0       0      15        0.0%
+BITBANK9           100      0       0      12        0.0%
+BANK9              100      0       0      13        0.0%
+BITBANK8           100      0       0      10        0.0%
+BANK8              100      0       0      11        0.0%
+BITBANK7           100      0       0       8        0.0%
+BANK7              100      0       0       9        0.0%
+BITBANK6           100      0       0       6        0.0%
+BANK6              100      0       0       7        0.0%
+BITBIGSFRhhhhhh     D3      0       0      38        0.0%
+BITBANK5            A0      0       0       4        0.0%
+BANK5               A0      0       0       5        0.0%
+BITCOMRAM           5F      0       0       0        0.0%
+COMRAM              5F     1B      25       1       38.9%
+BITBIGSFRhhhhhh      4      0       0      40        0.0%
+BITBIGSFRhhhhhh      4      0       0      42        0.0%
+BITBIGSFRhhhhhh      4      0       0      44        0.0%
+BITBIGSFRhhhhhl      4      0       0      46        0.0%
+BITBIGSFRlh          2      0       0      52        0.0%
+BITBIGSFRhhhhhh      2      0       0      39        0.0%
+BITBIGSFRhhhhhh      2      0       0      41        0.0%
+BITBIGSFRhhhhhh      2      0       0      43        0.0%
+BITBIGSFRhhhhhh      2      0       0      45        0.0%
+BITBIGSFRhhhhl       2      0       0      47        0.0%
+BITBIGSFRhhl         2      0       0      49        0.0%
+BITBIGSFRhll         2      0       0      51        0.0%
+BITBIGSFRhhhlh       1      0       0      48        0.0%
+BIGSFR_1             0      0       0     200        0.0%
+BIGSFR               0      0       0     200        0.0%
+BITSFR_6             0      0       0     200        0.0%
+SFR_6                0      0       0     200        0.0%
+BITSFR_5             0      0       0     200        0.0%
+SFR_5                0      0       0     200        0.0%
+BITSFR_4             0      0       0     200        0.0%
+SFR_4                0      0       0     200        0.0%
+BITSFR_3             0      0       0     200        0.0%
+SFR_3                0      0       0     200        0.0%
+BITSFR_2             0      0       0     200        0.0%
+SFR_2                0      0       0     200        0.0%
+BITSFR_1             0      0       0     200        0.0%
+SFR_1                0      0       0     200        0.0%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      25      54        0.0%
+DATA                 0      0      25       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V2.46 build 20240104201356 
+Symbol Table                                                                                   Sun Feb 25 19:17:54 2024
+
+                                  l40 18F2                                   l120 1A36  
+                                 l210 1ACE                                   l203 1A7E  
+                                 l221 1AEE                                   l207 1AF8  
+                                 l224 1AC2                    main@u8PinListPortA 050E  
+                                 l235 1AE4                    main@u8PinListPortB 0510  
+                                 l180 19E0                    main@u8PinListPortD 050A  
+                                 l238 1AB6                                   l183 1B02  
+                                 l167 17A2                                   l186 1ADA  
+                         main@u8Mask1 0515                           main@u8Mask2 0516  
+                                 u300 1A2A                                   u301 1A26  
+                                 u310 1518                                   u311 1514  
+                                 u400 164A                                   u320 153A  
+                                 u401 1646                                   u321 1536  
+                                 u410 166C                                   u330 155C  
+                                 u411 1668                                   u331 1558  
+                                 u500 1A50                                   u420 168E  
+                                 u340 157E                                   u501 1A4C  
+                                 u421 168A                                   u341 157A  
+                                 u510 1A60                                   u430 16B0  
+                                 u350 15A0                                   u511 1A5C  
+                                 u431 16AC                                   u351 159C  
+                                 u520 1A76                                   u440 16D2  
+                                 u360 15C2                                   u521 1A72  
+                                 u441 16CE                                   u361 15BE  
+                                 u450 16F4                                   u370 15E4  
+                                 u530 18EE                                   u451 16F0  
+                                 u371 15E0                                   u531 18EA  
+                                 u460 1716                                   u380 1606  
+                                 u540 1902                                   u461 1712  
+                                 u381 1602                                   u541 18FE  
+                                 u294 1A0C                                   u470 1738  
+                                 u390 1628                                   u550 1936  
+                                 u295 1A08                                   u471 1734  
+                                 u391 1624                                   u551 1932  
+                                 u480 175A                                   u560 196A  
+                                 u481 1756                                   u561 1966  
+                                 u490 198E                                   u491 198A  
+                                l1110 1AF2           IOPINS_vPortConfig@u8PinMask 0501  
+                                l1120 1AAE                                  l1112 1ADE  
+                                l1122 1ABA                                  l1114 1AE8  
+                                l1116 1AD2                                  l1108 1AFC  
+                                l1300 15B2                                  l1118 1AC6  
+                                l1310 15F0                                  l1302 15C2  
+                                l1400 1A50                                  l1320 1628  
+                                l1312 15F6                                  l1304 15CA  
+                                l1402 1A60                                  l1330 165C  
+                                l1322 1630                                  l1314 1606  
+                                l1306 15D4                                  l1412 1A7C  
+                                l1404 1A64                                  l1260 19EE  
+                                l1340 1696                                  l1332 166C  
+                                l1324 163A                                  l1316 1610  
+                                l1308 15E4                                  l1420 17C4  
+                                l1406 1A76                                  l1262 1A16  
+                                l1350 16D2                                  l1342 16A0  
+                                l1334 1676                                  l1326 164A  
+                                l1318 1618                                  l1270 1508  
+                                l1430 1814                                  l1422 17CC  
+                                l1264 1A18                                  l1360 1706  
+                                l1352 16DC                                  l1344 16B0  
+                                l1336 167E                                  l1328 1656  
+                                l1280 1544                                  l1272 1518  
+                                l1440 1880                                  l1432 182C  
+                                l1424 17D4                                  l1416 17A4  
+                                l1266 1A2A                                  l1258 19E2  
+                                l1370 1742                                  l1362 1716  
+                                l1354 16E4                                  l1346 16BC  
+                                l1338 168E                                  l1290 157E  
+                                l1282 154C                                  l1274 1524  
+                                l1450 18D8                                  l1442 1896  
+                                l1434 1844                                  l1426 17E4  
+                                l1418 17BC                                  l1372 174A  
+                                l1364 1722                                  l1356 16F4  
+                                l1348 16C2                                  l1292 158A  
+                                l1284 155C                                  l1276 152A  
+                                l1380 176C                                  l1268 1504  
+                                l1452 18EE                                  l1444 18AC  
+                                l1436 185C                                  l1428 17FC  
+                                l1374 175A                                  l1366 1728  
+                                l1358 16FC                                  l1294 1590  
+                                l1286 1564                                  l1278 153A  
+                                l1390 199C                                  l1382 1974  
+                                l1462 191E                                  l1454 1902  
+                                l1446 18C2                                  l1438 1872  
+                                l1376 1762                                  l1368 1738  
+                                l1296 15A0                                  l1288 156E  
+                                l1384 1978                                  l1464 1924  
+                                l1456 191A                                  l1448 18D8  
+                                l1298 15AA                                  l1386 197E  
+                                l1394 19AA                                  l1474 1952  
+                                l1466 1936                                  l1396 1A3A  
+                                l1388 198E                                  l1476 1958  
+                                l1468 194E                                  l1398 1A3E  
+                                _LATA 0140                                  _LATB 0141  
+                                _LATC 0142                                  _LATD 0143  
+                                _LATE 0144                                  _LATF 0145  
+                                _WPUA 0401                                  _WPUB 0409  
+                                _WPUC 0411                                  _WPUD 0419  
+                                _WPUE 0421                                  _WPUF 0429  
+                                _main 17A4                                  fsr2h 04DA  
+                                indf2 04DF                                  fsr1l 04E1  
+                                fsr2l 04D9                                  start FFFC  
+                        ___param_bank 0000         _IOPINS_bPinAInterruptRead$173 0501  
+                               ?_main 0501                                 _IOCAF 0407  
+                               _IOCAN 0406                                 _IOCAP 0405  
+                               _PORTA 0150                                 _PORTB 0151  
+                               _PORTC 0152                                 _PORTD 0153  
+                               _PORTE 0154                                 _PORTF 0155  
+                               _TRISA 0148                                 _TRISB 0149  
+                               _TRISC 014A                                 _TRISD 014B  
+                               _TRISE 014C                                 _TRISF 014D  
+           IOPINS_vPortBSet@u8PinMask 0501                                 main@i 051A  
+                               tablat 04F5                                 status 04D8  
+                     __initialization 1A80                          __end_of_main 1972  
+                              ??_main 050A                         __activetblptr 0002  
+         IOPINS_vPortBClear@u8PinMask 0501                                _INLVLA 0404  
+                              _INLVLB 040C                                _INLVLC 0414  
+                              _INLVLD 041C                                _INLVLE 0424  
+                              _INLVLF 042C                        main@u8PinList1 0513  
+                      main@u8PinList2 0514          ?_IOPINS_vPortInterruptConfig 0501  
+                              isa$std 0001                          __pdataCOMRAM 051C  
+                        __mediumconst 0000                                tblptrh 04F7  
+                              tblptrl 04F6                                tblptru 04F8  
+           IOPINS_vPortCSet@u8PinMask 0501            __end_of_IOPINS_vPortAClear 1ADC  
+          __end_of_IOPINS_vPortBClear 1AD0            __end_of_IOPINS_vPortCClear 1AC4  
+          __end_of_IOPINS_vPortDClear 1AB8           IOPINS_vPortDClear@u8PinMask 0501  
+          __end_of_IOPINS_vPortConfig 17A4                            __accesstop 0560  
+             __end_of__initialization 1AA2         __end_of_IOPINS_vMaskGenerator 1A38  
+                       ___rparam_used 0001                        __pcstackCOMRAM 0501  
+       ??_IOPINS_vPortInterruptConfig 0503                       main@u8MaskPortA 0517  
+                     main@u8MaskPortB 0518                       main@u8MaskPortD 0519  
+           IOPINS_vPortDSet@u8PinMask 0501                      _IOPINS_vPortASet 1AFA  
+                    _IOPINS_vPortBSet 1AF0                      _IOPINS_vPortCSet 1AE6  
+                    _IOPINS_vPortDSet 1ADC                               __Hparam 0000  
+                             __Lparam 0000      IOPINS_vPortConfig@bInputLevelSel 0504  
+                        __psmallconst 1500                               __pcinit 1A80  
+                             __ramtop 1500                               __ptext0 17A4  
+                             __ptext1 1972                               __ptext2 1ADC  
+                             __ptext3 1AAC                               __ptext4 1502  
+                             __ptext5 1AE6                               __ptext6 1AB8  
+                             __ptext7 1AF0                               __ptext8 1AC4  
+                             __ptext9 1AFA       IOPINS_vMaskGenerator@u8TempMask 0508  
+                end_of_initialization 1AA2                         __Lmediumconst 0000  
+            IOPINS_vPortConfig@u8Port 0505                               postdec1 04E5  
+                             postinc0 04EE                            main@F16291 0522  
+                          main@F16293 0520                            main@F16287 0524  
+                          main@F16295 051C                            main@F16289 0525  
+           IOPINS_vPortConfig@bWeakPU 0503                            main@bState 0512  
+                  _IOPINS_vPortAClear 1AD0                    _IOPINS_vPortBClear 1AC4  
+                  _IOPINS_vPortCClear 1AB8                    _IOPINS_vPortDClear 1AAC  
+                  _IOPINS_vPortConfig 1502                   ?_IOPINS_vPortAClear 0501  
+                 ?_IOPINS_vPortBClear 0501                   ?_IOPINS_vPortCClear 0501  
+                 ?_IOPINS_vPortDClear 0501                         __pidataCOMRAM 1B04  
+                 ?_IOPINS_vPortConfig 0501                   start_initialization 1A80  
+                ??_IOPINS_vPortAClear 0501                  ??_IOPINS_vPortBClear 0501  
+                ??_IOPINS_vPortCClear 0501                  ??_IOPINS_vPortDClear 0501  
+          ?_IOPINS_bPinAInterruptRead 0501                  ??_IOPINS_vPortConfig 0505  
+               _IOPINS_vMaskGenerator 19E2              __end_of_IOPINS_vPortASet 1B04  
+            __end_of_IOPINS_vPortBSet 1AFA              __end_of_IOPINS_vPortCSet 1AF0  
+            __end_of_IOPINS_vPortDSet 1AE6           IOPINS_vPortAClear@u8PinMask 0501  
+                         __pbssCOMRAM 0525     __end_of_IOPINS_bPinAInterruptRead 1A80  
+ __end_of_IOPINS_vPortInterruptConfig 19E2           _IOPINS_vPortInterruptConfig 1972  
+                         __smallconst 1500              IOPINS_vMaskGenerator@idx 0509  
+         IOPINS_vPortCClear@u8PinMask 0501        IOPINS_vMaskGenerator@u8PinMask 0504  
+      IOPINS_vMaskGenerator@u8PinList 0501                ?_IOPINS_vMaskGenerator 0501  
+   IOPINS_vPortInterruptConfig@u8Port 0503                             copy_data0 1A94  
+                            __Hrparam 0000                              __Lrparam 0000  
+  IOPINS_bPinAInterruptRead@u8PinMask 0502                              __ptext10 1AD0  
+                            __ptext11 19E2                              __ptext12 1A38  
+         ??_IOPINS_bPinAInterruptRead 0501                              isa$xinst 0000  
+    IOPINS_vPortInterruptConfig@bEdge 0502                     ?_IOPINS_vPortASet 0501  
+                   ?_IOPINS_vPortBSet 0501                     ?_IOPINS_vPortCSet 0501  
+                   ?_IOPINS_vPortDSet 0501                    ??_IOPINS_vPortASet 0501  
+                  ??_IOPINS_vPortBSet 0501                    ??_IOPINS_vPortCSet 0501  
+                  ??_IOPINS_vPortDSet 0501           IOPINS_vMaskGenerator@u8Pins 0503  
+       IOPINS_vPortConfig@u8Direction 0502             _IOPINS_bPinAInterruptRead 1A38  
+IOPINS_vPortInterruptConfig@u8PinMask 0501             IOPINS_vPortASet@u8PinMask 0501  
+             ??_IOPINS_vMaskGenerator 0506  
